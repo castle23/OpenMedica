@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CfgImagenesViewDlg" widgetVar="CfgImagenesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCfgImagenesTitle}">
+            <h:form id="CfgImagenesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cfgImagenesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCfgImagenesLabel_id}"/>
+                        <h:outputText value="#{cfgImagenesController.selected.id}" title="#{bundle.ViewCfgImagenesTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewCfgImagenesLabel_nombre}"/>
+                        <h:outputText value="#{cfgImagenesController.selected.nombre}" title="#{bundle.ViewCfgImagenesTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewCfgImagenesLabel_nombreEnServidor}"/>
+                        <h:outputText value="#{cfgImagenesController.selected.nombreEnServidor}" title="#{bundle.ViewCfgImagenesTitle_nombreEnServidor}"/>
+                        <h:outputText value="#{bundle.ViewCfgImagenesLabel_urlImagen}"/>
+                        <h:outputText value="#{cfgImagenesController.selected.urlImagen}" title="#{bundle.ViewCfgImagenesTitle_urlImagen}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CfgImagenesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

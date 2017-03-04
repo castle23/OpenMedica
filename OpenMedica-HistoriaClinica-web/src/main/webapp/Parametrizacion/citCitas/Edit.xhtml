@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CitCitasEditDlg" widgetVar="CitCitasEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCitCitasTitle}">
+            <h:form id="CitCitasEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{citCitasController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_idCita}" for="idCita" />
+                        <p:inputText id="idCita" value="#{citCitasController.selected.idCita}" title="#{bundle.EditCitCitasTitle_idCita}" required="true" requiredMessage="#{bundle.EditCitCitasRequiredMessage_idCita}"/>
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_atendida}" for="atendida" />
+                        <p:selectBooleanCheckbox id="atendida" value="#{citCitasController.selected.atendida}" />
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_cancelada}" for="cancelada" />
+                        <p:selectBooleanCheckbox id="cancelada" value="#{citCitasController.selected.cancelada}" />
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_multado}" for="multado" />
+                        <p:selectBooleanCheckbox id="multado" value="#{citCitasController.selected.multado}" />
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_descCancelacion}" for="descCancelacion" />
+                        <p:inputText id="descCancelacion" value="#{citCitasController.selected.descCancelacion}" title="#{bundle.EditCitCitasTitle_descCancelacion}" />
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_fechaRegistro}" for="fechaRegistro" />
+                        <p:calendar id="fechaRegistro" pattern="MM/dd/yyyy" value="#{citCitasController.selected.fechaRegistro}" title="#{bundle.EditCitCitasTitle_fechaRegistro}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_fechaCancelacion}" for="fechaCancelacion" />
+                        <p:calendar id="fechaCancelacion" pattern="MM/dd/yyyy" value="#{citCitasController.selected.fechaCancelacion}" title="#{bundle.EditCitCitasTitle_fechaCancelacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_facturada}" for="facturada" />
+                        <p:selectBooleanCheckbox id="facturada" value="#{citCitasController.selected.facturada}" />
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_noPaqAplicado}" for="noPaqAplicado" />
+                        <p:inputText id="noPaqAplicado" value="#{citCitasController.selected.noPaqAplicado}" title="#{bundle.EditCitCitasTitle_noPaqAplicado}" />
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_tieneRegAsociado}" for="tieneRegAsociado" />
+                        <p:selectBooleanCheckbox id="tieneRegAsociado" value="#{citCitasController.selected.tieneRegAsociado}" />
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_numAutorizacion}" for="numAutorizacion" />
+                        <p:inputText id="numAutorizacion" value="#{citCitasController.selected.numAutorizacion}" title="#{bundle.EditCitCitasTitle_numAutorizacion}" />
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_motivoCancelacion}" for="motivoCancelacion" />
+                        <p:selectOneMenu id="motivoCancelacion" value="#{citCitasController.selected.motivoCancelacion}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="motivoCancelacionItem"
+                                           itemValue="#{motivoCancelacionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_tipoCita}" for="tipoCita" />
+                        <p:selectOneMenu id="tipoCita" value="#{citCitasController.selected.tipoCita}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="tipoCitaItem"
+                                           itemValue="#{tipoCitaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_idPaciente}" for="idPaciente" />
+                        <p:selectOneMenu id="idPaciente" value="#{citCitasController.selected.idPaciente}" required="true" requiredMessage="#{bundle.EditCitCitasRequiredMessage_idPaciente}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cfgPacientesController.itemsAvailableSelectOne}"
+                                           var="idPacienteItem"
+                                           itemValue="#{idPacienteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_idPrestador}" for="idPrestador" />
+                        <p:selectOneMenu id="idPrestador" value="#{citCitasController.selected.idPrestador}" required="true" requiredMessage="#{bundle.EditCitCitasRequiredMessage_idPrestador}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cfgUsuariosController.itemsAvailableSelectOne}"
+                                           var="idPrestadorItem"
+                                           itemValue="#{idPrestadorItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_idAutorizacion}" for="idAutorizacion" />
+                        <p:selectOneMenu id="idAutorizacion" value="#{citCitasController.selected.idAutorizacion}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{citAutorizacionesController.itemsAvailableSelectOne}"
+                                           var="idAutorizacionItem"
+                                           itemValue="#{idAutorizacionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_idPaquete}" for="idPaquete" />
+                        <p:selectOneMenu id="idPaquete" value="#{citCitasController.selected.idPaquete}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{citPaqMaestroController.itemsAvailableSelectOne}"
+                                           var="idPaqueteItem"
+                                           itemValue="#{idPaqueteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_idTurno}" for="idTurno" />
+                        <p:selectOneMenu id="idTurno" value="#{citCitasController.selected.idTurno}" required="true" requiredMessage="#{bundle.EditCitCitasRequiredMessage_idTurno}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{citTurnosController.itemsAvailableSelectOne}"
+                                           var="idTurnoItem"
+                                           itemValue="#{idTurnoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_idAdministradora}" for="idAdministradora" />
+                        <p:selectOneMenu id="idAdministradora" value="#{citCitasController.selected.idAdministradora}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{facAdministradoraController.itemsAvailableSelectOne}"
+                                           var="idAdministradoraItem"
+                                           itemValue="#{idAdministradoraItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditCitCitasLabel_idServicio}" for="idServicio" />
+                        <p:selectOneMenu id="idServicio" value="#{citCitasController.selected.idServicio}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{facServicioController.itemsAvailableSelectOne}"
+                                           var="idServicioItem"
+                                           itemValue="#{idServicioItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{citCitasController.update}" value="#{bundle.Save}" update="display,:CitCitasListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CitCitasEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CitCitasEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

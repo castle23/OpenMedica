@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CfgConsultoriosCreateDlg" widgetVar="CfgConsultoriosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCfgConsultoriosTitle}">
+            <h:form id="CfgConsultoriosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cfgConsultoriosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCfgConsultoriosLabel_idConsultorio}" for="idConsultorio" />
+                        <p:inputText id="idConsultorio" value="#{cfgConsultoriosController.selected.idConsultorio}" title="#{bundle.CreateCfgConsultoriosTitle_idConsultorio}" required="true" requiredMessage="#{bundle.CreateCfgConsultoriosRequiredMessage_idConsultorio}"/>
+                        <p:outputLabel value="#{bundle.CreateCfgConsultoriosLabel_codConsultorio}" for="codConsultorio" />
+                        <p:inputText id="codConsultorio" value="#{cfgConsultoriosController.selected.codConsultorio}" title="#{bundle.CreateCfgConsultoriosTitle_codConsultorio}" required="true" requiredMessage="#{bundle.CreateCfgConsultoriosRequiredMessage_codConsultorio}"/>
+                        <p:outputLabel value="#{bundle.CreateCfgConsultoriosLabel_nomConsultorio}" for="nomConsultorio" />
+                        <p:inputText id="nomConsultorio" value="#{cfgConsultoriosController.selected.nomConsultorio}" title="#{bundle.CreateCfgConsultoriosTitle_nomConsultorio}" />
+                        <p:outputLabel value="#{bundle.CreateCfgConsultoriosLabel_pisoConsultorio}" for="pisoConsultorio" />
+                        <p:inputText id="pisoConsultorio" value="#{cfgConsultoriosController.selected.pisoConsultorio}" title="#{bundle.CreateCfgConsultoriosTitle_pisoConsultorio}" />
+                        <p:outputLabel value="#{bundle.CreateCfgConsultoriosLabel_codEspecialidad}" for="codEspecialidad" />
+                        <p:selectOneMenu id="codEspecialidad" value="#{cfgConsultoriosController.selected.codEspecialidad}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="codEspecialidadItem"
+                                           itemValue="#{codEspecialidadItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgConsultoriosLabel_idSede}" for="idSede" />
+                        <p:selectOneMenu id="idSede" value="#{cfgConsultoriosController.selected.idSede}" >
+                            <f:selectItems value="#{cfgSedeController.itemsAvailableSelectOne}"
+                                           var="idSedeItem"
+                                           itemValue="#{idSedeItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cfgConsultoriosController.create}" value="#{bundle.Save}" update="display,:CfgConsultoriosListForm:datalist,:growl" oncomplete="handleSubmit(args,'CfgConsultoriosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CfgConsultoriosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

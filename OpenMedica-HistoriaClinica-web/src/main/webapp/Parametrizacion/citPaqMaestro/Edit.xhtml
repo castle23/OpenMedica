@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CitPaqMaestroEditDlg" widgetVar="CitPaqMaestroEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCitPaqMaestroTitle}">
+            <h:form id="CitPaqMaestroEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{citPaqMaestroController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCitPaqMaestroLabel_idPaqMaestro}" for="idPaqMaestro" />
+                        <p:inputText id="idPaqMaestro" value="#{citPaqMaestroController.selected.idPaqMaestro}" title="#{bundle.EditCitPaqMaestroTitle_idPaqMaestro}" required="true" requiredMessage="#{bundle.EditCitPaqMaestroRequiredMessage_idPaqMaestro}"/>
+                        <p:outputLabel value="#{bundle.EditCitPaqMaestroLabel_codPaquete}" for="codPaquete" />
+                        <p:inputText id="codPaquete" value="#{citPaqMaestroController.selected.codPaquete}" title="#{bundle.EditCitPaqMaestroTitle_codPaquete}" />
+                        <p:outputLabel value="#{bundle.EditCitPaqMaestroLabel_nomPaquete}" for="nomPaquete" />
+                        <p:inputText id="nomPaquete" value="#{citPaqMaestroController.selected.nomPaquete}" title="#{bundle.EditCitPaqMaestroTitle_nomPaquete}" />
+                        <p:outputLabel value="#{bundle.EditCitPaqMaestroLabel_dias}" for="dias" />
+                        <p:inputText id="dias" value="#{citPaqMaestroController.selected.dias}" title="#{bundle.EditCitPaqMaestroTitle_dias}" />
+                        <p:outputLabel value="#{bundle.EditCitPaqMaestroLabel_noPaqAplicado}" for="noPaqAplicado" />
+                        <p:inputText id="noPaqAplicado" value="#{citPaqMaestroController.selected.noPaqAplicado}" title="#{bundle.EditCitPaqMaestroTitle_noPaqAplicado}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{citPaqMaestroController.update}" value="#{bundle.Save}" update="display,:CitPaqMaestroListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CitPaqMaestroEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CitPaqMaestroEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FacAdministradoraEditDlg" widgetVar="FacAdministradoraEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditFacAdministradoraTitle}">
+            <h:form id="FacAdministradoraEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{facAdministradoraController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_idAdministradora}" for="idAdministradora" />
+                        <p:inputText id="idAdministradora" value="#{facAdministradoraController.selected.idAdministradora}" title="#{bundle.EditFacAdministradoraTitle_idAdministradora}" required="true" requiredMessage="#{bundle.EditFacAdministradoraRequiredMessage_idAdministradora}"/>
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_codigoAdministradora}" for="codigoAdministradora" />
+                        <p:inputText id="codigoAdministradora" value="#{facAdministradoraController.selected.codigoAdministradora}" title="#{bundle.EditFacAdministradoraTitle_codigoAdministradora}" />
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_razonSocial}" for="razonSocial" />
+                        <p:inputText id="razonSocial" value="#{facAdministradoraController.selected.razonSocial}" title="#{bundle.EditFacAdministradoraTitle_razonSocial}" />
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_numeroIdentificacion}" for="numeroIdentificacion" />
+                        <p:inputText id="numeroIdentificacion" value="#{facAdministradoraController.selected.numeroIdentificacion}" title="#{bundle.EditFacAdministradoraTitle_numeroIdentificacion}" />
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_digitoVerificacion}" for="digitoVerificacion" />
+                        <p:inputText id="digitoVerificacion" value="#{facAdministradoraController.selected.digitoVerificacion}" title="#{bundle.EditFacAdministradoraTitle_digitoVerificacion}" />
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_numeroDocumentoRepresentante}" for="numeroDocumentoRepresentante" />
+                        <p:inputText id="numeroDocumentoRepresentante" value="#{facAdministradoraController.selected.numeroDocumentoRepresentante}" title="#{bundle.EditFacAdministradoraTitle_numeroDocumentoRepresentante}" />
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_nombreRepresentante}" for="nombreRepresentante" />
+                        <p:inputText id="nombreRepresentante" value="#{facAdministradoraController.selected.nombreRepresentante}" title="#{bundle.EditFacAdministradoraTitle_nombreRepresentante}" />
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_codigoRip}" for="codigoRip" />
+                        <p:inputText id="codigoRip" value="#{facAdministradoraController.selected.codigoRip}" title="#{bundle.EditFacAdministradoraTitle_codigoRip}" />
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{facAdministradoraController.selected.direccion}" title="#{bundle.EditFacAdministradoraTitle_direccion}" />
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_telefono1}" for="telefono1" />
+                        <p:inputText id="telefono1" value="#{facAdministradoraController.selected.telefono1}" title="#{bundle.EditFacAdministradoraTitle_telefono1}" />
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_telefono2}" for="telefono2" />
+                        <p:inputText id="telefono2" value="#{facAdministradoraController.selected.telefono2}" title="#{bundle.EditFacAdministradoraTitle_telefono2}" />
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_website}" for="website" />
+                        <p:inputText id="website" value="#{facAdministradoraController.selected.website}" title="#{bundle.EditFacAdministradoraTitle_website}" />
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_codigoIngreso}" for="codigoIngreso" />
+                        <p:inputText id="codigoIngreso" value="#{facAdministradoraController.selected.codigoIngreso}" title="#{bundle.EditFacAdministradoraTitle_codigoIngreso}" />
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_codigoRubro}" for="codigoRubro" />
+                        <p:inputText id="codigoRubro" value="#{facAdministradoraController.selected.codigoRubro}" title="#{bundle.EditFacAdministradoraTitle_codigoRubro}" />
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_codigoConc}" for="codigoConc" />
+                        <p:inputText id="codigoConc" value="#{facAdministradoraController.selected.codigoConc}" title="#{bundle.EditFacAdministradoraTitle_codigoConc}" />
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_codigoDepartamento}" for="codigoDepartamento" />
+                        <p:selectOneMenu id="codigoDepartamento" value="#{facAdministradoraController.selected.codigoDepartamento}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="codigoDepartamentoItem"
+                                           itemValue="#{codigoDepartamentoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_codigoMunicipio}" for="codigoMunicipio" />
+                        <p:selectOneMenu id="codigoMunicipio" value="#{facAdministradoraController.selected.codigoMunicipio}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="codigoMunicipioItem"
+                                           itemValue="#{codigoMunicipioItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_tipoAdministradora}" for="tipoAdministradora" />
+                        <p:selectOneMenu id="tipoAdministradora" value="#{facAdministradoraController.selected.tipoAdministradora}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="tipoAdministradoraItem"
+                                           itemValue="#{tipoAdministradoraItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_tipoDocumento}" for="tipoDocumento" />
+                        <p:selectOneMenu id="tipoDocumento" value="#{facAdministradoraController.selected.tipoDocumento}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="tipoDocumentoItem"
+                                           itemValue="#{tipoDocumentoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditFacAdministradoraLabel_tipoDocumentoRepresentante}" for="tipoDocumentoRepresentante" />
+                        <p:selectOneMenu id="tipoDocumentoRepresentante" value="#{facAdministradoraController.selected.tipoDocumentoRepresentante}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="tipoDocumentoRepresentanteItem"
+                                           itemValue="#{tipoDocumentoRepresentanteItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{facAdministradoraController.update}" value="#{bundle.Save}" update="display,:FacAdministradoraListForm:datalist,:growl" oncomplete="handleSubmit(args, 'FacAdministradoraEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FacAdministradoraEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

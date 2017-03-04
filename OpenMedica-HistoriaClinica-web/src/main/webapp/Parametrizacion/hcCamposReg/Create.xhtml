@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="HcCamposRegCreateDlg" widgetVar="HcCamposRegCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateHcCamposRegTitle}">
+            <h:form id="HcCamposRegCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{hcCamposRegController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateHcCamposRegLabel_idCampo}" for="idCampo" />
+                        <p:inputText id="idCampo" value="#{hcCamposRegController.selected.idCampo}" title="#{bundle.CreateHcCamposRegTitle_idCampo}" required="true" requiredMessage="#{bundle.CreateHcCamposRegRequiredMessage_idCampo}"/>
+                        <p:outputLabel value="#{bundle.CreateHcCamposRegLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{hcCamposRegController.selected.nombre}" title="#{bundle.CreateHcCamposRegTitle_nombre}" />
+                        <p:outputLabel value="#{bundle.CreateHcCamposRegLabel_tabla}" for="tabla" />
+                        <p:inputText id="tabla" value="#{hcCamposRegController.selected.tabla}" title="#{bundle.CreateHcCamposRegTitle_tabla}" />
+                        <p:outputLabel value="#{bundle.CreateHcCamposRegLabel_posicion}" for="posicion" />
+                        <p:inputText id="posicion" value="#{hcCamposRegController.selected.posicion}" title="#{bundle.CreateHcCamposRegTitle_posicion}" />
+                        <p:outputLabel value="#{bundle.CreateHcCamposRegLabel_nombrePdf}" for="nombrePdf" />
+                        <p:inputText id="nombrePdf" value="#{hcCamposRegController.selected.nombrePdf}" title="#{bundle.CreateHcCamposRegTitle_nombrePdf}" />
+                        <p:outputLabel value="#{bundle.CreateHcCamposRegLabel_idTipoReg}" for="idTipoReg" />
+                        <p:selectOneMenu id="idTipoReg" value="#{hcCamposRegController.selected.idTipoReg}" >
+                            <f:selectItems value="#{hcTipoRegController.itemsAvailableSelectOne}"
+                                           var="idTipoRegItem"
+                                           itemValue="#{idTipoRegItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{hcCamposRegController.create}" value="#{bundle.Save}" update="display,:HcCamposRegListForm:datalist,:growl" oncomplete="handleSubmit(args,'HcCamposRegCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="HcCamposRegCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

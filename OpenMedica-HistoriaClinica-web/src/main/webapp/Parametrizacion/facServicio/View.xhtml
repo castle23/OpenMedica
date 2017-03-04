@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FacServicioViewDlg" widgetVar="FacServicioViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewFacServicioTitle}">
+            <h:form id="FacServicioViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{facServicioController.selected != null}">
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_idServicio}"/>
+                        <h:outputText value="#{facServicioController.selected.idServicio}" title="#{bundle.ViewFacServicioTitle_idServicio}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_codigoServicio}"/>
+                        <h:outputText value="#{facServicioController.selected.codigoServicio}" title="#{bundle.ViewFacServicioTitle_codigoServicio}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_codigoCup}"/>
+                        <h:outputText value="#{facServicioController.selected.codigoCup}" title="#{bundle.ViewFacServicioTitle_codigoCup}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_codigoCums}"/>
+                        <h:outputText value="#{facServicioController.selected.codigoCums}" title="#{bundle.ViewFacServicioTitle_codigoCums}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_codigoSoat}"/>
+                        <h:outputText value="#{facServicioController.selected.codigoSoat}" title="#{bundle.ViewFacServicioTitle_codigoSoat}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_codigoIss}"/>
+                        <h:outputText value="#{facServicioController.selected.codigoIss}" title="#{bundle.ViewFacServicioTitle_codigoIss}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_nombreServicio}"/>
+                        <h:outputText value="#{facServicioController.selected.nombreServicio}" title="#{bundle.ViewFacServicioTitle_nombreServicio}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_edadInicial}"/>
+                        <h:outputText value="#{facServicioController.selected.edadInicial}" title="#{bundle.ViewFacServicioTitle_edadInicial}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_edadFinal}"/>
+                        <h:outputText value="#{facServicioController.selected.edadFinal}" title="#{bundle.ViewFacServicioTitle_edadFinal}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_tipoPos}"/>
+                        <p:selectBooleanCheckbox value="#{facServicioController.selected.tipoPos}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_porcentajeHonorarios}"/>
+                        <h:outputText value="#{facServicioController.selected.porcentajeHonorarios}" title="#{bundle.ViewFacServicioTitle_porcentajeHonorarios}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_tipoServicioFurip}"/>
+                        <h:outputText value="#{facServicioController.selected.tipoServicioFurip}" title="#{bundle.ViewFacServicioTitle_tipoServicioFurip}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_ripAplica}"/>
+                        <h:outputText value="#{facServicioController.selected.ripAplica}" title="#{bundle.ViewFacServicioTitle_ripAplica}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_autorizacion}"/>
+                        <p:selectBooleanCheckbox value="#{facServicioController.selected.autorizacion}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_visible}"/>
+                        <p:selectBooleanCheckbox value="#{facServicioController.selected.visible}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_valorParticular}"/>
+                        <h:outputText value="#{facServicioController.selected.valorParticular}" title="#{bundle.ViewFacServicioTitle_valorParticular}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_factorSoat}"/>
+                        <h:outputText value="#{facServicioController.selected.factorSoat}" title="#{bundle.ViewFacServicioTitle_factorSoat}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_factorIss}"/>
+                        <h:outputText value="#{facServicioController.selected.factorIss}" title="#{bundle.ViewFacServicioTitle_factorIss}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_aplicaIva}"/>
+                        <p:selectBooleanCheckbox value="#{facServicioController.selected.aplicaIva}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_aplicaCree}"/>
+                        <p:selectBooleanCheckbox value="#{facServicioController.selected.aplicaCree}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_tipoSevicio}"/>
+                        <h:outputText value="#{facServicioController.selected.tipoSevicio}" title="#{bundle.ViewFacServicioTitle_tipoSevicio}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_centroCosto}"/>
+                        <h:outputText value="#{facServicioController.selected.centroCosto}" title="#{bundle.ViewFacServicioTitle_centroCosto}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_ambito}"/>
+                        <h:outputText value="#{facServicioController.selected.ambito}" title="#{bundle.ViewFacServicioTitle_ambito}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_zona}"/>
+                        <h:outputText value="#{facServicioController.selected.zona}" title="#{bundle.ViewFacServicioTitle_zona}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_actoQuirurgico}"/>
+                        <h:outputText value="#{facServicioController.selected.actoQuirurgico}" title="#{bundle.ViewFacServicioTitle_actoQuirurgico}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_especialidad}"/>
+                        <h:outputText value="#{facServicioController.selected.especialidad}" title="#{bundle.ViewFacServicioTitle_especialidad}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_grupoServicio}"/>
+                        <h:outputText value="#{facServicioController.selected.grupoServicio}" title="#{bundle.ViewFacServicioTitle_grupoServicio}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_finalidad}"/>
+                        <h:outputText value="#{facServicioController.selected.finalidad}" title="#{bundle.ViewFacServicioTitle_finalidad}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_sexo}"/>
+                        <h:outputText value="#{facServicioController.selected.sexo}" title="#{bundle.ViewFacServicioTitle_sexo}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_codigoDiagnostico}"/>
+                        <h:outputText value="#{facServicioController.selected.codigoDiagnostico}" title="#{bundle.ViewFacServicioTitle_codigoDiagnostico}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_unidadEdadInicial}"/>
+                        <h:outputText value="#{facServicioController.selected.unidadEdadInicial}" title="#{bundle.ViewFacServicioTitle_unidadEdadInicial}"/>
+                        <h:outputText value="#{bundle.ViewFacServicioLabel_unidadEdadFinal}"/>
+                        <h:outputText value="#{facServicioController.selected.unidadEdadFinal}" title="#{bundle.ViewFacServicioTitle_unidadEdadFinal}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="FacServicioViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

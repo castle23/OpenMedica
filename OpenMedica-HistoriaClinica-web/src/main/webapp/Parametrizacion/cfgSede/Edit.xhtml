@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CfgSedeEditDlg" widgetVar="CfgSedeEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCfgSedeTitle}">
+            <h:form id="CfgSedeEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cfgSedeController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCfgSedeLabel_idSede}" for="idSede" />
+                        <p:inputText id="idSede" value="#{cfgSedeController.selected.idSede}" title="#{bundle.EditCfgSedeTitle_idSede}" required="true" requiredMessage="#{bundle.EditCfgSedeRequiredMessage_idSede}"/>
+                        <p:outputLabel value="#{bundle.EditCfgSedeLabel_codigoSede}" for="codigoSede" />
+                        <p:inputText id="codigoSede" value="#{cfgSedeController.selected.codigoSede}" title="#{bundle.EditCfgSedeTitle_codigoSede}" />
+                        <p:outputLabel value="#{bundle.EditCfgSedeLabel_nombreSede}" for="nombreSede" />
+                        <p:inputText id="nombreSede" value="#{cfgSedeController.selected.nombreSede}" title="#{bundle.EditCfgSedeTitle_nombreSede}" />
+                        <p:outputLabel value="#{bundle.EditCfgSedeLabel_encargado}" for="encargado" />
+                        <p:inputText id="encargado" value="#{cfgSedeController.selected.encargado}" title="#{bundle.EditCfgSedeTitle_encargado}" />
+                        <p:outputLabel value="#{bundle.EditCfgSedeLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{cfgSedeController.selected.direccion}" title="#{bundle.EditCfgSedeTitle_direccion}" />
+                        <p:outputLabel value="#{bundle.EditCfgSedeLabel_telefono1}" for="telefono1" />
+                        <p:inputText id="telefono1" value="#{cfgSedeController.selected.telefono1}" title="#{bundle.EditCfgSedeTitle_telefono1}" />
+                        <p:outputLabel value="#{bundle.EditCfgSedeLabel_telefono2}" for="telefono2" />
+                        <p:inputText id="telefono2" value="#{cfgSedeController.selected.telefono2}" title="#{bundle.EditCfgSedeTitle_telefono2}" />
+                        <p:outputLabel value="#{bundle.EditCfgSedeLabel_departamento}" for="departamento" />
+                        <p:selectOneMenu id="departamento" value="#{cfgSedeController.selected.departamento}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="departamentoItem"
+                                           itemValue="#{departamentoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditCfgSedeLabel_municipio}" for="municipio" />
+                        <p:selectOneMenu id="municipio" value="#{cfgSedeController.selected.municipio}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="municipioItem"
+                                           itemValue="#{municipioItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cfgSedeController.update}" value="#{bundle.Save}" update="display,:CfgSedeListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CfgSedeEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CfgSedeEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

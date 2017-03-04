@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CfgClasificacionesCreateDlg" widgetVar="CfgClasificacionesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCfgClasificacionesTitle}">
+            <h:form id="CfgClasificacionesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cfgClasificacionesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCfgClasificacionesLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{cfgClasificacionesController.selected.id}" title="#{bundle.CreateCfgClasificacionesTitle_id}" required="true" requiredMessage="#{bundle.CreateCfgClasificacionesRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateCfgClasificacionesLabel_codigo}" for="codigo" />
+                        <p:inputText id="codigo" value="#{cfgClasificacionesController.selected.codigo}" title="#{bundle.CreateCfgClasificacionesTitle_codigo}" />
+                        <p:outputLabel value="#{bundle.CreateCfgClasificacionesLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{cfgClasificacionesController.selected.descripcion}" title="#{bundle.CreateCfgClasificacionesTitle_descripcion}" />
+                        <p:outputLabel value="#{bundle.CreateCfgClasificacionesLabel_observacion}" for="observacion" />
+                        <p:inputText id="observacion" value="#{cfgClasificacionesController.selected.observacion}" title="#{bundle.CreateCfgClasificacionesTitle_observacion}" />
+                        <p:outputLabel value="#{bundle.CreateCfgClasificacionesLabel_maestro}" for="maestro" />
+                        <p:selectOneMenu id="maestro" value="#{cfgClasificacionesController.selected.maestro}" >
+                            <f:selectItems value="#{cfgMaestrosClasificacionesController.itemsAvailableSelectOne}"
+                                           var="maestroItem"
+                                           itemValue="#{maestroItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cfgClasificacionesController.create}" value="#{bundle.Save}" update="display,:CfgClasificacionesListForm:datalist,:growl" oncomplete="handleSubmit(args,'CfgClasificacionesCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CfgClasificacionesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

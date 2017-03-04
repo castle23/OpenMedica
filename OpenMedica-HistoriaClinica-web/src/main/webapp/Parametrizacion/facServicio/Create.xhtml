@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FacServicioCreateDlg" widgetVar="FacServicioCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateFacServicioTitle}">
+            <h:form id="FacServicioCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{facServicioController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_idServicio}" for="idServicio" />
+                        <p:inputText id="idServicio" value="#{facServicioController.selected.idServicio}" title="#{bundle.CreateFacServicioTitle_idServicio}" required="true" requiredMessage="#{bundle.CreateFacServicioRequiredMessage_idServicio}"/>
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_codigoServicio}" for="codigoServicio" />
+                        <p:inputText id="codigoServicio" value="#{facServicioController.selected.codigoServicio}" title="#{bundle.CreateFacServicioTitle_codigoServicio}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_codigoCup}" for="codigoCup" />
+                        <p:inputText id="codigoCup" value="#{facServicioController.selected.codigoCup}" title="#{bundle.CreateFacServicioTitle_codigoCup}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_codigoCums}" for="codigoCums" />
+                        <p:inputText id="codigoCums" value="#{facServicioController.selected.codigoCums}" title="#{bundle.CreateFacServicioTitle_codigoCums}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_codigoSoat}" for="codigoSoat" />
+                        <p:inputText id="codigoSoat" value="#{facServicioController.selected.codigoSoat}" title="#{bundle.CreateFacServicioTitle_codigoSoat}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_codigoIss}" for="codigoIss" />
+                        <p:inputText id="codigoIss" value="#{facServicioController.selected.codigoIss}" title="#{bundle.CreateFacServicioTitle_codigoIss}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_nombreServicio}" for="nombreServicio" />
+                        <p:inputText id="nombreServicio" value="#{facServicioController.selected.nombreServicio}" title="#{bundle.CreateFacServicioTitle_nombreServicio}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_edadInicial}" for="edadInicial" />
+                        <p:inputText id="edadInicial" value="#{facServicioController.selected.edadInicial}" title="#{bundle.CreateFacServicioTitle_edadInicial}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_edadFinal}" for="edadFinal" />
+                        <p:inputText id="edadFinal" value="#{facServicioController.selected.edadFinal}" title="#{bundle.CreateFacServicioTitle_edadFinal}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_tipoPos}" for="tipoPos" />
+                        <p:selectBooleanCheckbox id="tipoPos" value="#{facServicioController.selected.tipoPos}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_porcentajeHonorarios}" for="porcentajeHonorarios" />
+                        <p:inputText id="porcentajeHonorarios" value="#{facServicioController.selected.porcentajeHonorarios}" title="#{bundle.CreateFacServicioTitle_porcentajeHonorarios}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_tipoServicioFurip}" for="tipoServicioFurip" />
+                        <p:inputText id="tipoServicioFurip" value="#{facServicioController.selected.tipoServicioFurip}" title="#{bundle.CreateFacServicioTitle_tipoServicioFurip}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_ripAplica}" for="ripAplica" />
+                        <p:inputText id="ripAplica" value="#{facServicioController.selected.ripAplica}" title="#{bundle.CreateFacServicioTitle_ripAplica}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_autorizacion}" for="autorizacion" />
+                        <p:selectBooleanCheckbox id="autorizacion" value="#{facServicioController.selected.autorizacion}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_visible}" for="visible" />
+                        <p:selectBooleanCheckbox id="visible" value="#{facServicioController.selected.visible}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_valorParticular}" for="valorParticular" />
+                        <p:inputText id="valorParticular" value="#{facServicioController.selected.valorParticular}" title="#{bundle.CreateFacServicioTitle_valorParticular}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_factorSoat}" for="factorSoat" />
+                        <p:inputText id="factorSoat" value="#{facServicioController.selected.factorSoat}" title="#{bundle.CreateFacServicioTitle_factorSoat}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_factorIss}" for="factorIss" />
+                        <p:inputText id="factorIss" value="#{facServicioController.selected.factorIss}" title="#{bundle.CreateFacServicioTitle_factorIss}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_aplicaIva}" for="aplicaIva" />
+                        <p:selectBooleanCheckbox id="aplicaIva" value="#{facServicioController.selected.aplicaIva}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_aplicaCree}" for="aplicaCree" />
+                        <p:selectBooleanCheckbox id="aplicaCree" value="#{facServicioController.selected.aplicaCree}" />
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_tipoSevicio}" for="tipoSevicio" />
+                        <p:selectOneMenu id="tipoSevicio" value="#{facServicioController.selected.tipoSevicio}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="tipoSevicioItem"
+                                           itemValue="#{tipoSevicioItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_centroCosto}" for="centroCosto" />
+                        <p:selectOneMenu id="centroCosto" value="#{facServicioController.selected.centroCosto}" >
+                            <f:selectItems value="#{cfgCentroCostoController.itemsAvailableSelectOne}"
+                                           var="centroCostoItem"
+                                           itemValue="#{centroCostoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_ambito}" for="ambito" />
+                        <p:selectOneMenu id="ambito" value="#{facServicioController.selected.ambito}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="ambitoItem"
+                                           itemValue="#{ambitoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_zona}" for="zona" />
+                        <p:selectOneMenu id="zona" value="#{facServicioController.selected.zona}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="zonaItem"
+                                           itemValue="#{zonaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_actoQuirurgico}" for="actoQuirurgico" />
+                        <p:selectOneMenu id="actoQuirurgico" value="#{facServicioController.selected.actoQuirurgico}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="actoQuirurgicoItem"
+                                           itemValue="#{actoQuirurgicoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_especialidad}" for="especialidad" />
+                        <p:selectOneMenu id="especialidad" value="#{facServicioController.selected.especialidad}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="especialidadItem"
+                                           itemValue="#{especialidadItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_grupoServicio}" for="grupoServicio" />
+                        <p:selectOneMenu id="grupoServicio" value="#{facServicioController.selected.grupoServicio}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="grupoServicioItem"
+                                           itemValue="#{grupoServicioItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_finalidad}" for="finalidad" />
+                        <p:selectOneMenu id="finalidad" value="#{facServicioController.selected.finalidad}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="finalidadItem"
+                                           itemValue="#{finalidadItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_sexo}" for="sexo" />
+                        <p:selectOneMenu id="sexo" value="#{facServicioController.selected.sexo}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="sexoItem"
+                                           itemValue="#{sexoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_codigoDiagnostico}" for="codigoDiagnostico" />
+                        <p:selectOneMenu id="codigoDiagnostico" value="#{facServicioController.selected.codigoDiagnostico}" >
+                            <f:selectItems value="#{cfgDiagnosticoController.itemsAvailableSelectOne}"
+                                           var="codigoDiagnosticoItem"
+                                           itemValue="#{codigoDiagnosticoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_unidadEdadInicial}" for="unidadEdadInicial" />
+                        <p:selectOneMenu id="unidadEdadInicial" value="#{facServicioController.selected.unidadEdadInicial}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="unidadEdadInicialItem"
+                                           itemValue="#{unidadEdadInicialItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFacServicioLabel_unidadEdadFinal}" for="unidadEdadFinal" />
+                        <p:selectOneMenu id="unidadEdadFinal" value="#{facServicioController.selected.unidadEdadFinal}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="unidadEdadFinalItem"
+                                           itemValue="#{unidadEdadFinalItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{facServicioController.create}" value="#{bundle.Save}" update="display,:FacServicioListForm:datalist,:growl" oncomplete="handleSubmit(args,'FacServicioCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FacServicioCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

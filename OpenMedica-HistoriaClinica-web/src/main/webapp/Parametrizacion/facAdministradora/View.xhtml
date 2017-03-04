@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FacAdministradoraViewDlg" widgetVar="FacAdministradoraViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewFacAdministradoraTitle}">
+            <h:form id="FacAdministradoraViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{facAdministradoraController.selected != null}">
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_idAdministradora}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.idAdministradora}" title="#{bundle.ViewFacAdministradoraTitle_idAdministradora}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_codigoAdministradora}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.codigoAdministradora}" title="#{bundle.ViewFacAdministradoraTitle_codigoAdministradora}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_razonSocial}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.razonSocial}" title="#{bundle.ViewFacAdministradoraTitle_razonSocial}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_numeroIdentificacion}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.numeroIdentificacion}" title="#{bundle.ViewFacAdministradoraTitle_numeroIdentificacion}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_digitoVerificacion}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.digitoVerificacion}" title="#{bundle.ViewFacAdministradoraTitle_digitoVerificacion}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_numeroDocumentoRepresentante}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.numeroDocumentoRepresentante}" title="#{bundle.ViewFacAdministradoraTitle_numeroDocumentoRepresentante}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_nombreRepresentante}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.nombreRepresentante}" title="#{bundle.ViewFacAdministradoraTitle_nombreRepresentante}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_codigoRip}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.codigoRip}" title="#{bundle.ViewFacAdministradoraTitle_codigoRip}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_direccion}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.direccion}" title="#{bundle.ViewFacAdministradoraTitle_direccion}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_telefono1}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.telefono1}" title="#{bundle.ViewFacAdministradoraTitle_telefono1}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_telefono2}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.telefono2}" title="#{bundle.ViewFacAdministradoraTitle_telefono2}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_website}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.website}" title="#{bundle.ViewFacAdministradoraTitle_website}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_codigoIngreso}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.codigoIngreso}" title="#{bundle.ViewFacAdministradoraTitle_codigoIngreso}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_codigoRubro}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.codigoRubro}" title="#{bundle.ViewFacAdministradoraTitle_codigoRubro}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_codigoConc}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.codigoConc}" title="#{bundle.ViewFacAdministradoraTitle_codigoConc}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_codigoDepartamento}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.codigoDepartamento}" title="#{bundle.ViewFacAdministradoraTitle_codigoDepartamento}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_codigoMunicipio}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.codigoMunicipio}" title="#{bundle.ViewFacAdministradoraTitle_codigoMunicipio}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_tipoAdministradora}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.tipoAdministradora}" title="#{bundle.ViewFacAdministradoraTitle_tipoAdministradora}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_tipoDocumento}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.tipoDocumento}" title="#{bundle.ViewFacAdministradoraTitle_tipoDocumento}"/>
+                        <h:outputText value="#{bundle.ViewFacAdministradoraLabel_tipoDocumentoRepresentante}"/>
+                        <h:outputText value="#{facAdministradoraController.selected.tipoDocumentoRepresentante}" title="#{bundle.ViewFacAdministradoraTitle_tipoDocumentoRepresentante}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="FacAdministradoraViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

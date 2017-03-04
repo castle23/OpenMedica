@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CfgClasificacionesEditDlg" widgetVar="CfgClasificacionesEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCfgClasificacionesTitle}">
+            <h:form id="CfgClasificacionesEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cfgClasificacionesController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCfgClasificacionesLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{cfgClasificacionesController.selected.id}" title="#{bundle.EditCfgClasificacionesTitle_id}" required="true" requiredMessage="#{bundle.EditCfgClasificacionesRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditCfgClasificacionesLabel_codigo}" for="codigo" />
+                        <p:inputText id="codigo" value="#{cfgClasificacionesController.selected.codigo}" title="#{bundle.EditCfgClasificacionesTitle_codigo}" />
+                        <p:outputLabel value="#{bundle.EditCfgClasificacionesLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{cfgClasificacionesController.selected.descripcion}" title="#{bundle.EditCfgClasificacionesTitle_descripcion}" />
+                        <p:outputLabel value="#{bundle.EditCfgClasificacionesLabel_observacion}" for="observacion" />
+                        <p:inputText id="observacion" value="#{cfgClasificacionesController.selected.observacion}" title="#{bundle.EditCfgClasificacionesTitle_observacion}" />
+                        <p:outputLabel value="#{bundle.EditCfgClasificacionesLabel_maestro}" for="maestro" />
+                        <p:selectOneMenu id="maestro" value="#{cfgClasificacionesController.selected.maestro}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cfgMaestrosClasificacionesController.itemsAvailableSelectOne}"
+                                           var="maestroItem"
+                                           itemValue="#{maestroItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cfgClasificacionesController.update}" value="#{bundle.Save}" update="display,:CfgClasificacionesListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CfgClasificacionesEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CfgClasificacionesEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

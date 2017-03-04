@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CfgDiagnosticoViewDlg" widgetVar="CfgDiagnosticoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCfgDiagnosticoTitle}">
+            <h:form id="CfgDiagnosticoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cfgDiagnosticoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCfgDiagnosticoLabel_codigoDiagnostico}"/>
+                        <h:outputText value="#{cfgDiagnosticoController.selected.codigoDiagnostico}" title="#{bundle.ViewCfgDiagnosticoTitle_codigoDiagnostico}"/>
+                        <h:outputText value="#{bundle.ViewCfgDiagnosticoLabel_nombreDiagnostico}"/>
+                        <h:outputText value="#{cfgDiagnosticoController.selected.nombreDiagnostico}" title="#{bundle.ViewCfgDiagnosticoTitle_nombreDiagnostico}"/>
+                        <h:outputText value="#{bundle.ViewCfgDiagnosticoLabel_codigoEspecialidad}"/>
+                        <h:outputText value="#{cfgDiagnosticoController.selected.codigoEspecialidad}" title="#{bundle.ViewCfgDiagnosticoTitle_codigoEspecialidad}"/>
+                        <h:outputText value="#{bundle.ViewCfgDiagnosticoLabel_codigoEvento}"/>
+                        <h:outputText value="#{cfgDiagnosticoController.selected.codigoEvento}" title="#{bundle.ViewCfgDiagnosticoTitle_codigoEvento}"/>
+                        <h:outputText value="#{bundle.ViewCfgDiagnosticoLabel_simbolo}"/>
+                        <h:outputText value="#{cfgDiagnosticoController.selected.simbolo}" title="#{bundle.ViewCfgDiagnosticoTitle_simbolo}"/>
+                        <h:outputText value="#{bundle.ViewCfgDiagnosticoLabel_sexo}"/>
+                        <h:outputText value="#{cfgDiagnosticoController.selected.sexo}" title="#{bundle.ViewCfgDiagnosticoTitle_sexo}"/>
+                        <h:outputText value="#{bundle.ViewCfgDiagnosticoLabel_edad}"/>
+                        <h:outputText value="#{cfgDiagnosticoController.selected.edad}" title="#{bundle.ViewCfgDiagnosticoTitle_edad}"/>
+                        <h:outputText value="#{bundle.ViewCfgDiagnosticoLabel_unidadEdad}"/>
+                        <h:outputText value="#{cfgDiagnosticoController.selected.unidadEdad}" title="#{bundle.ViewCfgDiagnosticoTitle_unidadEdad}"/>
+                        <h:outputText value="#{bundle.ViewCfgDiagnosticoLabel_edadFinal}"/>
+                        <h:outputText value="#{cfgDiagnosticoController.selected.edadFinal}" title="#{bundle.ViewCfgDiagnosticoTitle_edadFinal}"/>
+                        <h:outputText value="#{bundle.ViewCfgDiagnosticoLabel_unidadEdadFinal}"/>
+                        <h:outputText value="#{cfgDiagnosticoController.selected.unidadEdadFinal}" title="#{bundle.ViewCfgDiagnosticoTitle_unidadEdadFinal}"/>
+                        <h:outputText value="#{bundle.ViewCfgDiagnosticoLabel_atencionObligatoria}"/>
+                        <p:selectBooleanCheckbox value="#{cfgDiagnosticoController.selected.atencionObligatoria}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCfgDiagnosticoLabel_vigilanciaEpidemiologica}"/>
+                        <p:selectBooleanCheckbox value="#{cfgDiagnosticoController.selected.vigilanciaEpidemiologica}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCfgDiagnosticoLabel_cent}"/>
+                        <p:selectBooleanCheckbox value="#{cfgDiagnosticoController.selected.cent}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCfgDiagnosticoLabel_patCron}"/>
+                        <p:selectBooleanCheckbox value="#{cfgDiagnosticoController.selected.patCron}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCfgDiagnosticoLabel_disMental}"/>
+                        <p:selectBooleanCheckbox value="#{cfgDiagnosticoController.selected.disMental}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCfgDiagnosticoLabel_disSensorial}"/>
+                        <p:selectBooleanCheckbox value="#{cfgDiagnosticoController.selected.disSensorial}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCfgDiagnosticoLabel_disMotriz}"/>
+                        <p:selectBooleanCheckbox value="#{cfgDiagnosticoController.selected.disMotriz}" disabled="true"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CfgDiagnosticoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

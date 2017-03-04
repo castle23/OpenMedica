@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CfgPacientesCreateDlg" widgetVar="CfgPacientesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCfgPacientesTitle}">
+            <h:form id="CfgPacientesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cfgPacientesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_idPaciente}" for="idPaciente" />
+                        <p:inputText id="idPaciente" value="#{cfgPacientesController.selected.idPaciente}" title="#{bundle.CreateCfgPacientesTitle_idPaciente}" required="true" requiredMessage="#{bundle.CreateCfgPacientesRequiredMessage_idPaciente}"/>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_identificacion}" for="identificacion" />
+                        <p:inputText id="identificacion" value="#{cfgPacientesController.selected.identificacion}" title="#{bundle.CreateCfgPacientesTitle_identificacion}" required="true" requiredMessage="#{bundle.CreateCfgPacientesRequiredMessage_identificacion}"/>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_lugarExpedicion}" for="lugarExpedicion" />
+                        <p:inputText id="lugarExpedicion" value="#{cfgPacientesController.selected.lugarExpedicion}" title="#{bundle.CreateCfgPacientesTitle_lugarExpedicion}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_fechaNacimiento}" for="fechaNacimiento" />
+                        <p:calendar id="fechaNacimiento" pattern="MM/dd/yyyy HH:mm:ss" value="#{cfgPacientesController.selected.fechaNacimiento}" title="#{bundle.EditCfgPacientesTitle_fechaNacimiento}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_primerApellido}" for="primerApellido" />
+                        <p:inputText id="primerApellido" value="#{cfgPacientesController.selected.primerApellido}" title="#{bundle.CreateCfgPacientesTitle_primerApellido}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_segundoApellido}" for="segundoApellido" />
+                        <p:inputText id="segundoApellido" value="#{cfgPacientesController.selected.segundoApellido}" title="#{bundle.CreateCfgPacientesTitle_segundoApellido}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_primerNombre}" for="primerNombre" />
+                        <p:inputText id="primerNombre" value="#{cfgPacientesController.selected.primerNombre}" title="#{bundle.CreateCfgPacientesTitle_primerNombre}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_segundoNombre}" for="segundoNombre" />
+                        <p:inputText id="segundoNombre" value="#{cfgPacientesController.selected.segundoNombre}" title="#{bundle.CreateCfgPacientesTitle_segundoNombre}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_activo}" for="activo" />
+                        <p:selectBooleanCheckbox id="activo" value="#{cfgPacientesController.selected.activo}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{cfgPacientesController.selected.direccion}" title="#{bundle.CreateCfgPacientesTitle_direccion}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_telefonoResidencia}" for="telefonoResidencia" />
+                        <p:inputText id="telefonoResidencia" value="#{cfgPacientesController.selected.telefonoResidencia}" title="#{bundle.CreateCfgPacientesTitle_telefonoResidencia}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_telefonoOficina}" for="telefonoOficina" />
+                        <p:inputText id="telefonoOficina" value="#{cfgPacientesController.selected.telefonoOficina}" title="#{bundle.CreateCfgPacientesTitle_telefonoOficina}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_celular}" for="celular" />
+                        <p:inputText id="celular" value="#{cfgPacientesController.selected.celular}" title="#{bundle.CreateCfgPacientesTitle_celular}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_fechaAfiliacion}" for="fechaAfiliacion" />
+                        <p:calendar id="fechaAfiliacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{cfgPacientesController.selected.fechaAfiliacion}" title="#{bundle.EditCfgPacientesTitle_fechaAfiliacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_fechaSisben}" for="fechaSisben" />
+                        <p:calendar id="fechaSisben" pattern="MM/dd/yyyy HH:mm:ss" value="#{cfgPacientesController.selected.fechaSisben}" title="#{bundle.EditCfgPacientesTitle_fechaSisben}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_carnet}" for="carnet" />
+                        <p:inputText id="carnet" value="#{cfgPacientesController.selected.carnet}" title="#{bundle.CreateCfgPacientesTitle_carnet}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_barrio}" for="barrio" />
+                        <p:inputText id="barrio" value="#{cfgPacientesController.selected.barrio}" title="#{bundle.CreateCfgPacientesTitle_barrio}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_responsable}" for="responsable" />
+                        <p:inputText id="responsable" value="#{cfgPacientesController.selected.responsable}" title="#{bundle.CreateCfgPacientesTitle_responsable}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_acompanante}" for="acompanante" />
+                        <p:inputText id="acompanante" value="#{cfgPacientesController.selected.acompanante}" title="#{bundle.CreateCfgPacientesTitle_acompanante}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_telefonoAcompanante}" for="telefonoAcompanante" />
+                        <p:inputText id="telefonoAcompanante" value="#{cfgPacientesController.selected.telefonoAcompanante}" title="#{bundle.CreateCfgPacientesTitle_telefonoAcompanante}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_historia}" for="historia" />
+                        <p:inputText id="historia" value="#{cfgPacientesController.selected.historia}" title="#{bundle.CreateCfgPacientesTitle_historia}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_fechainsc}" for="fechainsc" />
+                        <p:calendar id="fechainsc" pattern="MM/dd/yyyy HH:mm:ss" value="#{cfgPacientesController.selected.fechainsc}" title="#{bundle.EditCfgPacientesTitle_fechainsc}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_facturarlo}" for="facturarlo" />
+                        <p:selectBooleanCheckbox id="facturarlo" value="#{cfgPacientesController.selected.facturarlo}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_dircatastrofe}" for="dircatastrofe" />
+                        <p:inputText id="dircatastrofe" value="#{cfgPacientesController.selected.dircatastrofe}" title="#{bundle.CreateCfgPacientesTitle_dircatastrofe}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_municipiocatastrofe}" for="municipiocatastrofe" />
+                        <p:inputText id="municipiocatastrofe" value="#{cfgPacientesController.selected.municipiocatastrofe}" title="#{bundle.CreateCfgPacientesTitle_municipiocatastrofe}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_departamentocatastrofe}" for="departamentocatastrofe" />
+                        <p:inputText id="departamentocatastrofe" value="#{cfgPacientesController.selected.departamentocatastrofe}" title="#{bundle.CreateCfgPacientesTitle_departamentocatastrofe}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_zonacatastrofe}" for="zonacatastrofe" />
+                        <p:inputText id="zonacatastrofe" value="#{cfgPacientesController.selected.zonacatastrofe}" title="#{bundle.CreateCfgPacientesTitle_zonacatastrofe}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_fechacatastrofe}" for="fechacatastrofe" />
+                        <p:calendar id="fechacatastrofe" pattern="MM/dd/yyyy HH:mm:ss" value="#{cfgPacientesController.selected.fechacatastrofe}" title="#{bundle.EditCfgPacientesTitle_fechacatastrofe}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_fechaop}" for="fechaop" />
+                        <p:calendar id="fechaop" pattern="MM/dd/yyyy HH:mm:ss" value="#{cfgPacientesController.selected.fechaop}" title="#{bundle.EditCfgPacientesTitle_fechaop}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_grado}" for="grado" />
+                        <p:inputText id="grado" value="#{cfgPacientesController.selected.grado}" title="#{bundle.CreateCfgPacientesTitle_grado}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_pensionado}" for="pensionado" />
+                        <p:selectBooleanCheckbox id="pensionado" value="#{cfgPacientesController.selected.pensionado}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{cfgPacientesController.selected.email}" title="#{bundle.CreateCfgPacientesTitle_email}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_numeroAutorizacion}" for="numeroAutorizacion" />
+                        <p:inputText id="numeroAutorizacion" value="#{cfgPacientesController.selected.numeroAutorizacion}" title="#{bundle.CreateCfgPacientesTitle_numeroAutorizacion}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_telefonoResponsable}" for="telefonoResponsable" />
+                        <p:inputText id="telefonoResponsable" value="#{cfgPacientesController.selected.telefonoResponsable}" title="#{bundle.CreateCfgPacientesTitle_telefonoResponsable}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_fechaVenceCarnet}" for="fechaVenceCarnet" />
+                        <p:calendar id="fechaVenceCarnet" pattern="MM/dd/yyyy HH:mm:ss" value="#{cfgPacientesController.selected.fechaVenceCarnet}" title="#{bundle.EditCfgPacientesTitle_fechaVenceCarnet}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_observaciones}" for="observaciones" />
+                        <p:inputText id="observaciones" value="#{cfgPacientesController.selected.observaciones}" title="#{bundle.CreateCfgPacientesTitle_observaciones}" />
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_tipoIdentificacion}" for="tipoIdentificacion" />
+                        <p:selectOneMenu id="tipoIdentificacion" value="#{cfgPacientesController.selected.tipoIdentificacion}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="tipoIdentificacionItem"
+                                           itemValue="#{tipoIdentificacionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_categoriaPaciente}" for="categoriaPaciente" />
+                        <p:selectOneMenu id="categoriaPaciente" value="#{cfgPacientesController.selected.categoriaPaciente}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="categoriaPacienteItem"
+                                           itemValue="#{categoriaPacienteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_depNacimiento}" for="depNacimiento" />
+                        <p:selectOneMenu id="depNacimiento" value="#{cfgPacientesController.selected.depNacimiento}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="depNacimientoItem"
+                                           itemValue="#{depNacimientoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_ocupacion}" for="ocupacion" />
+                        <p:selectOneMenu id="ocupacion" value="#{cfgPacientesController.selected.ocupacion}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="ocupacionItem"
+                                           itemValue="#{ocupacionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_tipoAfiliado}" for="tipoAfiliado" />
+                        <p:selectOneMenu id="tipoAfiliado" value="#{cfgPacientesController.selected.tipoAfiliado}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="tipoAfiliadoItem"
+                                           itemValue="#{tipoAfiliadoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_etnia}" for="etnia" />
+                        <p:selectOneMenu id="etnia" value="#{cfgPacientesController.selected.etnia}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="etniaItem"
+                                           itemValue="#{etniaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_genero}" for="genero" />
+                        <p:selectOneMenu id="genero" value="#{cfgPacientesController.selected.genero}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="generoItem"
+                                           itemValue="#{generoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_zona}" for="zona" />
+                        <p:selectOneMenu id="zona" value="#{cfgPacientesController.selected.zona}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="zonaItem"
+                                           itemValue="#{zonaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_munNacimiento}" for="munNacimiento" />
+                        <p:selectOneMenu id="munNacimiento" value="#{cfgPacientesController.selected.munNacimiento}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="munNacimientoItem"
+                                           itemValue="#{munNacimientoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_regimen}" for="regimen" />
+                        <p:selectOneMenu id="regimen" value="#{cfgPacientesController.selected.regimen}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="regimenItem"
+                                           itemValue="#{regimenItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_nivel}" for="nivel" />
+                        <p:selectOneMenu id="nivel" value="#{cfgPacientesController.selected.nivel}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="nivelItem"
+                                           itemValue="#{nivelItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_firma}" for="firma" />
+                        <p:selectOneMenu id="firma" value="#{cfgPacientesController.selected.firma}" >
+                            <f:selectItems value="#{cfgImagenesController.itemsAvailableSelectOne}"
+                                           var="firmaItem"
+                                           itemValue="#{firmaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_municipio}" for="municipio" />
+                        <p:selectOneMenu id="municipio" value="#{cfgPacientesController.selected.municipio}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="municipioItem"
+                                           itemValue="#{municipioItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_parentesco}" for="parentesco" />
+                        <p:selectOneMenu id="parentesco" value="#{cfgPacientesController.selected.parentesco}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="parentescoItem"
+                                           itemValue="#{parentescoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_departamento}" for="departamento" />
+                        <p:selectOneMenu id="departamento" value="#{cfgPacientesController.selected.departamento}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="departamentoItem"
+                                           itemValue="#{departamentoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_escolaridad}" for="escolaridad" />
+                        <p:selectOneMenu id="escolaridad" value="#{cfgPacientesController.selected.escolaridad}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="escolaridadItem"
+                                           itemValue="#{escolaridadItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_foto}" for="foto" />
+                        <p:selectOneMenu id="foto" value="#{cfgPacientesController.selected.foto}" >
+                            <f:selectItems value="#{cfgImagenesController.itemsAvailableSelectOne}"
+                                           var="fotoItem"
+                                           itemValue="#{fotoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_idAdministradora}" for="idAdministradora" />
+                        <p:selectOneMenu id="idAdministradora" value="#{cfgPacientesController.selected.idAdministradora}" >
+                            <f:selectItems value="#{facAdministradoraController.itemsAvailableSelectOne}"
+                                           var="idAdministradoraItem"
+                                           itemValue="#{idAdministradoraItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_estadoCivil}" for="estadoCivil" />
+                        <p:selectOneMenu id="estadoCivil" value="#{cfgPacientesController.selected.estadoCivil}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="estadoCivilItem"
+                                           itemValue="#{estadoCivilItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgPacientesLabel_grupoSanguineo}" for="grupoSanguineo" />
+                        <p:selectOneMenu id="grupoSanguineo" value="#{cfgPacientesController.selected.grupoSanguineo}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="grupoSanguineoItem"
+                                           itemValue="#{grupoSanguineoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cfgPacientesController.create}" value="#{bundle.Save}" update="display,:CfgPacientesListForm:datalist,:growl" oncomplete="handleSubmit(args,'CfgPacientesCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CfgPacientesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

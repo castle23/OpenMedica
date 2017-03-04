@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CfgCentroCostoCreateDlg" widgetVar="CfgCentroCostoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCfgCentroCostoTitle}">
+            <h:form id="CfgCentroCostoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cfgCentroCostoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCfgCentroCostoLabel_idCentroCosto}" for="idCentroCosto" />
+                        <p:inputText id="idCentroCosto" value="#{cfgCentroCostoController.selected.idCentroCosto}" title="#{bundle.CreateCfgCentroCostoTitle_idCentroCosto}" required="true" requiredMessage="#{bundle.CreateCfgCentroCostoRequiredMessage_idCentroCosto}"/>
+                        <p:outputLabel value="#{bundle.CreateCfgCentroCostoLabel_codCentroCosto}" for="codCentroCosto" />
+                        <p:inputText id="codCentroCosto" value="#{cfgCentroCostoController.selected.codCentroCosto}" title="#{bundle.CreateCfgCentroCostoTitle_codCentroCosto}" />
+                        <p:outputLabel value="#{bundle.CreateCfgCentroCostoLabel_nomCentroCosto}" for="nomCentroCosto" />
+                        <p:inputText id="nomCentroCosto" value="#{cfgCentroCostoController.selected.nomCentroCosto}" title="#{bundle.CreateCfgCentroCostoTitle_nomCentroCosto}" />
+                        <p:outputLabel value="#{bundle.CreateCfgCentroCostoLabel_ctaContableIng}" for="ctaContableIng" />
+                        <p:inputText id="ctaContableIng" value="#{cfgCentroCostoController.selected.ctaContableIng}" title="#{bundle.CreateCfgCentroCostoTitle_ctaContableIng}" />
+                        <p:outputLabel value="#{bundle.CreateCfgCentroCostoLabel_ctaContableIngPs}" for="ctaContableIngPs" />
+                        <p:inputText id="ctaContableIngPs" value="#{cfgCentroCostoController.selected.ctaContableIngPs}" title="#{bundle.CreateCfgCentroCostoTitle_ctaContableIngPs}" />
+                        <p:outputLabel value="#{bundle.CreateCfgCentroCostoLabel_ctaDevolucion}" for="ctaDevolucion" />
+                        <p:inputText id="ctaDevolucion" value="#{cfgCentroCostoController.selected.ctaDevolucion}" title="#{bundle.CreateCfgCentroCostoTitle_ctaDevolucion}" />
+                        <p:outputLabel value="#{bundle.CreateCfgCentroCostoLabel_concCartera}" for="concCartera" />
+                        <p:inputText id="concCartera" value="#{cfgCentroCostoController.selected.concCartera}" title="#{bundle.CreateCfgCentroCostoTitle_concCartera}" />
+                        <p:outputLabel value="#{bundle.CreateCfgCentroCostoLabel_concDevolucion}" for="concDevolucion" />
+                        <p:inputText id="concDevolucion" value="#{cfgCentroCostoController.selected.concDevolucion}" title="#{bundle.CreateCfgCentroCostoTitle_concDevolucion}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cfgCentroCostoController.create}" value="#{bundle.Save}" update="display,:CfgCentroCostoListForm:datalist,:growl" oncomplete="handleSubmit(args,'CfgCentroCostoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CfgCentroCostoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

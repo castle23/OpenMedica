@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListFacServicioTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="FacServicioListForm">
+                <p:panel header="#{bundle.ListFacServicioTitle}">
+                    <p:dataTable id="datalist" value="#{facServicioController.items}" var="item"
+                                 selectionMode="single" selection="#{facServicioController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idServicio}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_idServicio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idServicio}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_codigoServicio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoServicio}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_codigoCup}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoCup}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_codigoCums}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoCums}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_codigoSoat}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoSoat}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_codigoIss}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoIss}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_nombreServicio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreServicio}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_edadInicial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.edadInicial}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_edadFinal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.edadFinal}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_tipoPos}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.tipoPos}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_porcentajeHonorarios}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.porcentajeHonorarios}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_tipoServicioFurip}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipoServicioFurip}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_ripAplica}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ripAplica}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_autorizacion}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.autorizacion}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_visible}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.visible}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_valorParticular}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valorParticular}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_factorSoat}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.factorSoat}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_factorIss}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.factorIss}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_aplicaIva}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.aplicaIva}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_aplicaCree}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.aplicaCree}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_tipoSevicio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipoSevicio}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_centroCosto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.centroCosto}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_ambito}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ambito}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_zona}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.zona}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_actoQuirurgico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.actoQuirurgico}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_especialidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.especialidad}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_grupoServicio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.grupoServicio}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_finalidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.finalidad}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_sexo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sexo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_codigoDiagnostico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoDiagnostico}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_unidadEdadInicial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.unidadEdadInicial}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacServicioTitle_unidadEdadFinal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.unidadEdadFinal}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{facServicioController.prepareCreate}" update=":FacServicioCreateForm" oncomplete="PF('FacServicioCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":FacServicioViewForm" oncomplete="PF('FacServicioViewDialog').show()" disabled="#{empty facServicioController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":FacServicioEditForm" oncomplete="PF('FacServicioEditDialog').show()" disabled="#{empty facServicioController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{facServicioController.destroy}" update=":growl,datalist" disabled="#{empty facServicioController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

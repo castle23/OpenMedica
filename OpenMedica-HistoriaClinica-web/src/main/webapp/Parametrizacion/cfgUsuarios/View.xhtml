@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CfgUsuariosViewDlg" widgetVar="CfgUsuariosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCfgUsuariosTitle}">
+            <h:form id="CfgUsuariosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cfgUsuariosController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_idUsuario}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.idUsuario}" title="#{bundle.ViewCfgUsuariosTitle_idUsuario}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_identificacion}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.identificacion}" title="#{bundle.ViewCfgUsuariosTitle_identificacion}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_clave}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.clave}" title="#{bundle.ViewCfgUsuariosTitle_clave}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_loginUsuario}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.loginUsuario}" title="#{bundle.ViewCfgUsuariosTitle_loginUsuario}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_estadoCuenta}"/>
+                        <p:selectBooleanCheckbox value="#{cfgUsuariosController.selected.estadoCuenta}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_observacion}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.observacion}" title="#{bundle.ViewCfgUsuariosTitle_observacion}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_primerNombre}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.primerNombre}" title="#{bundle.ViewCfgUsuariosTitle_primerNombre}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_segundoNombre}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.segundoNombre}" title="#{bundle.ViewCfgUsuariosTitle_segundoNombre}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_primerApellido}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.primerApellido}" title="#{bundle.ViewCfgUsuariosTitle_primerApellido}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_segundoApellido}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.segundoApellido}" title="#{bundle.ViewCfgUsuariosTitle_segundoApellido}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_direccion}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.direccion}" title="#{bundle.ViewCfgUsuariosTitle_direccion}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_telefonoResidencia}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.telefonoResidencia}" title="#{bundle.ViewCfgUsuariosTitle_telefonoResidencia}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_telefonoOficina}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.telefonoOficina}" title="#{bundle.ViewCfgUsuariosTitle_telefonoOficina}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_celular}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.celular}" title="#{bundle.ViewCfgUsuariosTitle_celular}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_email}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.email}" title="#{bundle.ViewCfgUsuariosTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_cargoActual}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.cargoActual}" title="#{bundle.ViewCfgUsuariosTitle_cargoActual}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_registroProfesional}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.registroProfesional}" title="#{bundle.ViewCfgUsuariosTitle_registroProfesional}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_unidadFuncional}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.unidadFuncional}" title="#{bundle.ViewCfgUsuariosTitle_unidadFuncional}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_porcentajeHonorario}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.porcentajeHonorario}" title="#{bundle.ViewCfgUsuariosTitle_porcentajeHonorario}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_fechaCreacion}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.fechaCreacion}" title="#{bundle.ViewCfgUsuariosTitle_fechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_visible}"/>
+                        <p:selectBooleanCheckbox value="#{cfgUsuariosController.selected.visible}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_mostrarEnHistorias}"/>
+                        <p:selectBooleanCheckbox value="#{cfgUsuariosController.selected.mostrarEnHistorias}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_especialidad}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.especialidad}" title="#{bundle.ViewCfgUsuariosTitle_especialidad}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_genero}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.genero}" title="#{bundle.ViewCfgUsuariosTitle_genero}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_personalAtiende}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.personalAtiende}" title="#{bundle.ViewCfgUsuariosTitle_personalAtiende}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_tipoUsuario}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.tipoUsuario}" title="#{bundle.ViewCfgUsuariosTitle_tipoUsuario}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_departamento}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.departamento}" title="#{bundle.ViewCfgUsuariosTitle_departamento}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_municipio}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.municipio}" title="#{bundle.ViewCfgUsuariosTitle_municipio}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_tipoIdentificacion}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.tipoIdentificacion}" title="#{bundle.ViewCfgUsuariosTitle_tipoIdentificacion}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_firma}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.firma}" title="#{bundle.ViewCfgUsuariosTitle_firma}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_foto}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.foto}" title="#{bundle.ViewCfgUsuariosTitle_foto}"/>
+                        <h:outputText value="#{bundle.ViewCfgUsuariosLabel_idPerfil}"/>
+                        <h:outputText value="#{cfgUsuariosController.selected.idPerfil}" title="#{bundle.ViewCfgUsuariosTitle_idPerfil}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CfgUsuariosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CfgSedeCreateDlg" widgetVar="CfgSedeCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCfgSedeTitle}">
+            <h:form id="CfgSedeCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cfgSedeController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCfgSedeLabel_idSede}" for="idSede" />
+                        <p:inputText id="idSede" value="#{cfgSedeController.selected.idSede}" title="#{bundle.CreateCfgSedeTitle_idSede}" required="true" requiredMessage="#{bundle.CreateCfgSedeRequiredMessage_idSede}"/>
+                        <p:outputLabel value="#{bundle.CreateCfgSedeLabel_codigoSede}" for="codigoSede" />
+                        <p:inputText id="codigoSede" value="#{cfgSedeController.selected.codigoSede}" title="#{bundle.CreateCfgSedeTitle_codigoSede}" />
+                        <p:outputLabel value="#{bundle.CreateCfgSedeLabel_nombreSede}" for="nombreSede" />
+                        <p:inputText id="nombreSede" value="#{cfgSedeController.selected.nombreSede}" title="#{bundle.CreateCfgSedeTitle_nombreSede}" />
+                        <p:outputLabel value="#{bundle.CreateCfgSedeLabel_encargado}" for="encargado" />
+                        <p:inputText id="encargado" value="#{cfgSedeController.selected.encargado}" title="#{bundle.CreateCfgSedeTitle_encargado}" />
+                        <p:outputLabel value="#{bundle.CreateCfgSedeLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{cfgSedeController.selected.direccion}" title="#{bundle.CreateCfgSedeTitle_direccion}" />
+                        <p:outputLabel value="#{bundle.CreateCfgSedeLabel_telefono1}" for="telefono1" />
+                        <p:inputText id="telefono1" value="#{cfgSedeController.selected.telefono1}" title="#{bundle.CreateCfgSedeTitle_telefono1}" />
+                        <p:outputLabel value="#{bundle.CreateCfgSedeLabel_telefono2}" for="telefono2" />
+                        <p:inputText id="telefono2" value="#{cfgSedeController.selected.telefono2}" title="#{bundle.CreateCfgSedeTitle_telefono2}" />
+                        <p:outputLabel value="#{bundle.CreateCfgSedeLabel_departamento}" for="departamento" />
+                        <p:selectOneMenu id="departamento" value="#{cfgSedeController.selected.departamento}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="departamentoItem"
+                                           itemValue="#{departamentoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgSedeLabel_municipio}" for="municipio" />
+                        <p:selectOneMenu id="municipio" value="#{cfgSedeController.selected.municipio}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="municipioItem"
+                                           itemValue="#{municipioItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cfgSedeController.create}" value="#{bundle.Save}" update="display,:CfgSedeListForm:datalist,:growl" oncomplete="handleSubmit(args,'CfgSedeCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CfgSedeCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CitAutorizacionesViewDlg" widgetVar="CitAutorizacionesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCitAutorizacionesTitle}">
+            <h:form id="CitAutorizacionesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{citAutorizacionesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCitAutorizacionesLabel_numAutorizacion}"/>
+                        <h:outputText value="#{citAutorizacionesController.selected.numAutorizacion}" title="#{bundle.ViewCitAutorizacionesTitle_numAutorizacion}"/>
+                        <h:outputText value="#{bundle.ViewCitAutorizacionesLabel_idAutorizacion}"/>
+                        <h:outputText value="#{citAutorizacionesController.selected.idAutorizacion}" title="#{bundle.ViewCitAutorizacionesTitle_idAutorizacion}"/>
+                        <h:outputText value="#{bundle.ViewCitAutorizacionesLabel_cerrada}"/>
+                        <p:selectBooleanCheckbox value="#{citAutorizacionesController.selected.cerrada}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCitAutorizacionesLabel_facturada}"/>
+                        <p:selectBooleanCheckbox value="#{citAutorizacionesController.selected.facturada}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCitAutorizacionesLabel_fechaSistema}"/>
+                        <h:outputText value="#{citAutorizacionesController.selected.fechaSistema}" title="#{bundle.ViewCitAutorizacionesTitle_fechaSistema}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCitAutorizacionesLabel_fechaAutorizacion}"/>
+                        <h:outputText value="#{citAutorizacionesController.selected.fechaAutorizacion}" title="#{bundle.ViewCitAutorizacionesTitle_fechaAutorizacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCitAutorizacionesLabel_paciente}"/>
+                        <h:outputText value="#{citAutorizacionesController.selected.paciente}" title="#{bundle.ViewCitAutorizacionesTitle_paciente}"/>
+                        <h:outputText value="#{bundle.ViewCitAutorizacionesLabel_idUsuarioCreador}"/>
+                        <h:outputText value="#{citAutorizacionesController.selected.idUsuarioCreador}" title="#{bundle.ViewCitAutorizacionesTitle_idUsuarioCreador}"/>
+                        <h:outputText value="#{bundle.ViewCitAutorizacionesLabel_administradora}"/>
+                        <h:outputText value="#{citAutorizacionesController.selected.administradora}" title="#{bundle.ViewCitAutorizacionesTitle_administradora}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CitAutorizacionesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

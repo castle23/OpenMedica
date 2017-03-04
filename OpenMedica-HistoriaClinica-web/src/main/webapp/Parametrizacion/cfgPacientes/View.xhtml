@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CfgPacientesViewDlg" widgetVar="CfgPacientesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCfgPacientesTitle}">
+            <h:form id="CfgPacientesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cfgPacientesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_idPaciente}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.idPaciente}" title="#{bundle.ViewCfgPacientesTitle_idPaciente}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_identificacion}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.identificacion}" title="#{bundle.ViewCfgPacientesTitle_identificacion}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_lugarExpedicion}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.lugarExpedicion}" title="#{bundle.ViewCfgPacientesTitle_lugarExpedicion}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_fechaNacimiento}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.fechaNacimiento}" title="#{bundle.ViewCfgPacientesTitle_fechaNacimiento}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_primerApellido}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.primerApellido}" title="#{bundle.ViewCfgPacientesTitle_primerApellido}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_segundoApellido}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.segundoApellido}" title="#{bundle.ViewCfgPacientesTitle_segundoApellido}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_primerNombre}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.primerNombre}" title="#{bundle.ViewCfgPacientesTitle_primerNombre}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_segundoNombre}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.segundoNombre}" title="#{bundle.ViewCfgPacientesTitle_segundoNombre}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_activo}"/>
+                        <p:selectBooleanCheckbox value="#{cfgPacientesController.selected.activo}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_direccion}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.direccion}" title="#{bundle.ViewCfgPacientesTitle_direccion}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_telefonoResidencia}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.telefonoResidencia}" title="#{bundle.ViewCfgPacientesTitle_telefonoResidencia}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_telefonoOficina}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.telefonoOficina}" title="#{bundle.ViewCfgPacientesTitle_telefonoOficina}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_celular}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.celular}" title="#{bundle.ViewCfgPacientesTitle_celular}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_fechaAfiliacion}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.fechaAfiliacion}" title="#{bundle.ViewCfgPacientesTitle_fechaAfiliacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_fechaSisben}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.fechaSisben}" title="#{bundle.ViewCfgPacientesTitle_fechaSisben}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_carnet}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.carnet}" title="#{bundle.ViewCfgPacientesTitle_carnet}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_barrio}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.barrio}" title="#{bundle.ViewCfgPacientesTitle_barrio}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_responsable}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.responsable}" title="#{bundle.ViewCfgPacientesTitle_responsable}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_acompanante}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.acompanante}" title="#{bundle.ViewCfgPacientesTitle_acompanante}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_telefonoAcompanante}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.telefonoAcompanante}" title="#{bundle.ViewCfgPacientesTitle_telefonoAcompanante}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_historia}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.historia}" title="#{bundle.ViewCfgPacientesTitle_historia}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_fechainsc}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.fechainsc}" title="#{bundle.ViewCfgPacientesTitle_fechainsc}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_facturarlo}"/>
+                        <p:selectBooleanCheckbox value="#{cfgPacientesController.selected.facturarlo}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_dircatastrofe}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.dircatastrofe}" title="#{bundle.ViewCfgPacientesTitle_dircatastrofe}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_municipiocatastrofe}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.municipiocatastrofe}" title="#{bundle.ViewCfgPacientesTitle_municipiocatastrofe}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_departamentocatastrofe}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.departamentocatastrofe}" title="#{bundle.ViewCfgPacientesTitle_departamentocatastrofe}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_zonacatastrofe}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.zonacatastrofe}" title="#{bundle.ViewCfgPacientesTitle_zonacatastrofe}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_fechacatastrofe}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.fechacatastrofe}" title="#{bundle.ViewCfgPacientesTitle_fechacatastrofe}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_fechaop}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.fechaop}" title="#{bundle.ViewCfgPacientesTitle_fechaop}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_grado}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.grado}" title="#{bundle.ViewCfgPacientesTitle_grado}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_pensionado}"/>
+                        <p:selectBooleanCheckbox value="#{cfgPacientesController.selected.pensionado}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_email}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.email}" title="#{bundle.ViewCfgPacientesTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_numeroAutorizacion}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.numeroAutorizacion}" title="#{bundle.ViewCfgPacientesTitle_numeroAutorizacion}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_telefonoResponsable}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.telefonoResponsable}" title="#{bundle.ViewCfgPacientesTitle_telefonoResponsable}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_fechaVenceCarnet}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.fechaVenceCarnet}" title="#{bundle.ViewCfgPacientesTitle_fechaVenceCarnet}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_observaciones}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.observaciones}" title="#{bundle.ViewCfgPacientesTitle_observaciones}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_tipoIdentificacion}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.tipoIdentificacion}" title="#{bundle.ViewCfgPacientesTitle_tipoIdentificacion}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_categoriaPaciente}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.categoriaPaciente}" title="#{bundle.ViewCfgPacientesTitle_categoriaPaciente}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_depNacimiento}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.depNacimiento}" title="#{bundle.ViewCfgPacientesTitle_depNacimiento}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_ocupacion}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.ocupacion}" title="#{bundle.ViewCfgPacientesTitle_ocupacion}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_tipoAfiliado}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.tipoAfiliado}" title="#{bundle.ViewCfgPacientesTitle_tipoAfiliado}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_etnia}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.etnia}" title="#{bundle.ViewCfgPacientesTitle_etnia}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_genero}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.genero}" title="#{bundle.ViewCfgPacientesTitle_genero}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_zona}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.zona}" title="#{bundle.ViewCfgPacientesTitle_zona}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_munNacimiento}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.munNacimiento}" title="#{bundle.ViewCfgPacientesTitle_munNacimiento}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_regimen}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.regimen}" title="#{bundle.ViewCfgPacientesTitle_regimen}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_nivel}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.nivel}" title="#{bundle.ViewCfgPacientesTitle_nivel}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_firma}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.firma}" title="#{bundle.ViewCfgPacientesTitle_firma}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_municipio}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.municipio}" title="#{bundle.ViewCfgPacientesTitle_municipio}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_parentesco}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.parentesco}" title="#{bundle.ViewCfgPacientesTitle_parentesco}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_departamento}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.departamento}" title="#{bundle.ViewCfgPacientesTitle_departamento}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_escolaridad}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.escolaridad}" title="#{bundle.ViewCfgPacientesTitle_escolaridad}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_foto}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.foto}" title="#{bundle.ViewCfgPacientesTitle_foto}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_idAdministradora}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.idAdministradora}" title="#{bundle.ViewCfgPacientesTitle_idAdministradora}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_estadoCivil}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.estadoCivil}" title="#{bundle.ViewCfgPacientesTitle_estadoCivil}"/>
+                        <h:outputText value="#{bundle.ViewCfgPacientesLabel_grupoSanguineo}"/>
+                        <h:outputText value="#{cfgPacientesController.selected.grupoSanguineo}" title="#{bundle.ViewCfgPacientesTitle_grupoSanguineo}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CfgPacientesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

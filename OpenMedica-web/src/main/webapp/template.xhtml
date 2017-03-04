@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title><ui:insert name="title">Default Title</ui:insert></title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+    </h:head>
+
+    <h:body>
+
+        <p:growl id="growl" life="3000" />
+
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="65" header="#{bundle.AppName}">
+                <h:form id="menuForm">
+                    <p:menubar>
+                        <p:menuitem value="#{bundle.Home}" outcome="/index" icon="ui-icon-home"/>
+                        <p:submenu label="#{bundle.Maintenance}">
+                            <p:menuitem value="CfgCentroCosto" outcome="/Parametrizacion/cfgCentroCosto/List.xhtml" />
+                            <p:menuitem value="CfgClasificaciones" outcome="/Parametrizacion/cfgClasificaciones/List.xhtml" />
+                            <p:menuitem value="CfgConsultorios" outcome="/Parametrizacion/cfgConsultorios/List.xhtml" />
+                            <p:menuitem value="CfgDiagnostico" outcome="/Parametrizacion/cfgDiagnostico/List.xhtml" />
+                            <p:menuitem value="CfgHorario" outcome="/Parametrizacion/cfgHorario/List.xhtml" />
+                            <p:menuitem value="CfgImagenes" outcome="/Parametrizacion/cfgImagenes/List.xhtml" />
+                            <p:menuitem value="CfgMaestrosClasificaciones" outcome="/Parametrizacion/cfgMaestrosClasificaciones/List.xhtml" />
+                            <p:menuitem value="CfgPacientes" outcome="/Parametrizacion/cfgPacientes/List.xhtml" />
+                            <p:menuitem value="CfgPerfilesUsuario" outcome="/Parametrizacion/cfgPerfilesUsuario/List.xhtml" />
+                            <p:menuitem value="CfgSede" outcome="/Parametrizacion/cfgSede/List.xhtml" />
+                            <p:menuitem value="CfgUsuarios" outcome="/Parametrizacion/cfgUsuarios/List.xhtml" />
+                            <p:menuitem value="CitAutorizaciones" outcome="/Parametrizacion/citAutorizaciones/List.xhtml" />
+                            <p:menuitem value="CitCitas" outcome="/Parametrizacion/citCitas/List.xhtml" />
+                            <p:menuitem value="CitPaqMaestro" outcome="/Parametrizacion/citPaqMaestro/List.xhtml" />
+                            <p:menuitem value="CitTurnos" outcome="/Parametrizacion/citTurnos/List.xhtml" />
+                            <p:menuitem value="FacAdministradora" outcome="/Parametrizacion/facAdministradora/List.xhtml" />
+                            <p:menuitem value="FacServicio" outcome="/Parametrizacion/facServicio/List.xhtml" />
+                            <p:menuitem value="HcCamposReg" outcome="/Parametrizacion/hcCamposReg/List.xhtml" />
+                            <p:menuitem value="HcDetalle" outcome="/Parametrizacion/hcDetalle/List.xhtml" />
+                            <p:menuitem value="HcItems" outcome="/Parametrizacion/hcItems/List.xhtml" />
+                            <p:menuitem value="HcRegistro" outcome="/Parametrizacion/hcRegistro/List.xhtml" />
+                            <p:menuitem value="HcTipoReg" outcome="/Parametrizacion/hcTipoReg/List.xhtml" />
+                        </p:submenu>
+                    </p:menubar>
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="60">
+                <ui:insert name="footer"/>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                <ui:insert name="body"/>
+            </p:layoutUnit>
+
+        </p:layout>
+
+    </h:body>
+
+</html>

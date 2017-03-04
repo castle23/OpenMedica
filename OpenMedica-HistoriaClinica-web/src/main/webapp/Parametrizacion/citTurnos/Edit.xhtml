@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CitTurnosEditDlg" widgetVar="CitTurnosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCitTurnosTitle}">
+            <h:form id="CitTurnosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{citTurnosController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCitTurnosLabel_idTurno}" for="idTurno" />
+                        <p:inputText id="idTurno" value="#{citTurnosController.selected.idTurno}" title="#{bundle.EditCitTurnosTitle_idTurno}" required="true" requiredMessage="#{bundle.EditCitTurnosRequiredMessage_idTurno}"/>
+                        <p:outputLabel value="#{bundle.EditCitTurnosLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{citTurnosController.selected.fecha}" title="#{bundle.EditCitTurnosTitle_fecha}" required="true" requiredMessage="#{bundle.EditCitTurnosRequiredMessage_fecha}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCitTurnosLabel_horaIni}" for="horaIni" />
+                        <p:calendar id="horaIni" pattern="HH:mm:ss" value="#{citTurnosController.selected.horaIni}" title="#{bundle.EditCitTurnosTitle_horaIni}" required="true" requiredMessage="#{bundle.EditCitTurnosRequiredMessage_horaIni}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCitTurnosLabel_horaFin}" for="horaFin" />
+                        <p:calendar id="horaFin" pattern="HH:mm:ss" value="#{citTurnosController.selected.horaFin}" title="#{bundle.EditCitTurnosTitle_horaFin}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCitTurnosLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{citTurnosController.selected.estado}" title="#{bundle.EditCitTurnosTitle_estado}" />
+                        <p:outputLabel value="#{bundle.EditCitTurnosLabel_concurrencia}" for="concurrencia" />
+                        <p:inputText id="concurrencia" value="#{citTurnosController.selected.concurrencia}" title="#{bundle.EditCitTurnosTitle_concurrencia}" required="true" requiredMessage="#{bundle.EditCitTurnosRequiredMessage_concurrencia}"/>
+                        <p:outputLabel value="#{bundle.EditCitTurnosLabel_contador}" for="contador" />
+                        <p:inputText id="contador" value="#{citTurnosController.selected.contador}" title="#{bundle.EditCitTurnosTitle_contador}" required="true" requiredMessage="#{bundle.EditCitTurnosRequiredMessage_contador}"/>
+                        <p:outputLabel value="#{bundle.EditCitTurnosLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy" value="#{citTurnosController.selected.fechaCreacion}" title="#{bundle.EditCitTurnosTitle_fechaCreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCitTurnosLabel_idConsultorio}" for="idConsultorio" />
+                        <p:selectOneMenu id="idConsultorio" value="#{citTurnosController.selected.idConsultorio}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cfgConsultoriosController.itemsAvailableSelectOne}"
+                                           var="idConsultorioItem"
+                                           itemValue="#{idConsultorioItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditCitTurnosLabel_idHorario}" for="idHorario" />
+                        <p:selectOneMenu id="idHorario" value="#{citTurnosController.selected.idHorario}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cfgHorarioController.itemsAvailableSelectOne}"
+                                           var="idHorarioItem"
+                                           itemValue="#{idHorarioItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditCitTurnosLabel_idPrestador}" for="idPrestador" />
+                        <p:selectOneMenu id="idPrestador" value="#{citTurnosController.selected.idPrestador}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cfgUsuariosController.itemsAvailableSelectOne}"
+                                           var="idPrestadorItem"
+                                           itemValue="#{idPrestadorItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{citTurnosController.update}" value="#{bundle.Save}" update="display,:CitTurnosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CitTurnosEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CitTurnosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

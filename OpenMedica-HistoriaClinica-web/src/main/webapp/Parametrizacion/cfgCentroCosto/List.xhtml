@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCfgCentroCostoTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="CfgCentroCostoListForm">
+                <p:panel header="#{bundle.ListCfgCentroCostoTitle}">
+                    <p:dataTable id="datalist" value="#{cfgCentroCostoController.items}" var="item"
+                                 selectionMode="single" selection="#{cfgCentroCostoController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idCentroCosto}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCfgCentroCostoTitle_idCentroCosto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idCentroCosto}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCfgCentroCostoTitle_codCentroCosto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codCentroCosto}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCfgCentroCostoTitle_nomCentroCosto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomCentroCosto}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCfgCentroCostoTitle_ctaContableIng}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ctaContableIng}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCfgCentroCostoTitle_ctaContableIngPs}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ctaContableIngPs}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCfgCentroCostoTitle_ctaDevolucion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ctaDevolucion}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCfgCentroCostoTitle_concCartera}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.concCartera}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCfgCentroCostoTitle_concDevolucion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.concDevolucion}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{cfgCentroCostoController.prepareCreate}" update=":CfgCentroCostoCreateForm" oncomplete="PF('CfgCentroCostoCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":CfgCentroCostoViewForm" oncomplete="PF('CfgCentroCostoViewDialog').show()" disabled="#{empty cfgCentroCostoController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":CfgCentroCostoEditForm" oncomplete="PF('CfgCentroCostoEditDialog').show()" disabled="#{empty cfgCentroCostoController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{cfgCentroCostoController.destroy}" update=":growl,datalist" disabled="#{empty cfgCentroCostoController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CfgDiagnosticoCreateDlg" widgetVar="CfgDiagnosticoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCfgDiagnosticoTitle}">
+            <h:form id="CfgDiagnosticoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cfgDiagnosticoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCfgDiagnosticoLabel_codigoDiagnostico}" for="codigoDiagnostico" />
+                        <p:inputText id="codigoDiagnostico" value="#{cfgDiagnosticoController.selected.codigoDiagnostico}" title="#{bundle.CreateCfgDiagnosticoTitle_codigoDiagnostico}" required="true" requiredMessage="#{bundle.CreateCfgDiagnosticoRequiredMessage_codigoDiagnostico}"/>
+                        <p:outputLabel value="#{bundle.CreateCfgDiagnosticoLabel_nombreDiagnostico}" for="nombreDiagnostico" />
+                        <p:inputText id="nombreDiagnostico" value="#{cfgDiagnosticoController.selected.nombreDiagnostico}" title="#{bundle.CreateCfgDiagnosticoTitle_nombreDiagnostico}" />
+                        <p:outputLabel value="#{bundle.CreateCfgDiagnosticoLabel_codigoEspecialidad}" for="codigoEspecialidad" />
+                        <p:inputText id="codigoEspecialidad" value="#{cfgDiagnosticoController.selected.codigoEspecialidad}" title="#{bundle.CreateCfgDiagnosticoTitle_codigoEspecialidad}" />
+                        <p:outputLabel value="#{bundle.CreateCfgDiagnosticoLabel_codigoEvento}" for="codigoEvento" />
+                        <p:inputText id="codigoEvento" value="#{cfgDiagnosticoController.selected.codigoEvento}" title="#{bundle.CreateCfgDiagnosticoTitle_codigoEvento}" />
+                        <p:outputLabel value="#{bundle.CreateCfgDiagnosticoLabel_simbolo}" for="simbolo" />
+                        <p:inputText id="simbolo" value="#{cfgDiagnosticoController.selected.simbolo}" title="#{bundle.CreateCfgDiagnosticoTitle_simbolo}" />
+                        <p:outputLabel value="#{bundle.CreateCfgDiagnosticoLabel_sexo}" for="sexo" />
+                        <p:inputText id="sexo" value="#{cfgDiagnosticoController.selected.sexo}" title="#{bundle.CreateCfgDiagnosticoTitle_sexo}" />
+                        <p:outputLabel value="#{bundle.CreateCfgDiagnosticoLabel_edad}" for="edad" />
+                        <p:inputText id="edad" value="#{cfgDiagnosticoController.selected.edad}" title="#{bundle.CreateCfgDiagnosticoTitle_edad}" />
+                        <p:outputLabel value="#{bundle.CreateCfgDiagnosticoLabel_unidadEdad}" for="unidadEdad" />
+                        <p:inputText id="unidadEdad" value="#{cfgDiagnosticoController.selected.unidadEdad}" title="#{bundle.CreateCfgDiagnosticoTitle_unidadEdad}" />
+                        <p:outputLabel value="#{bundle.CreateCfgDiagnosticoLabel_edadFinal}" for="edadFinal" />
+                        <p:inputText id="edadFinal" value="#{cfgDiagnosticoController.selected.edadFinal}" title="#{bundle.CreateCfgDiagnosticoTitle_edadFinal}" />
+                        <p:outputLabel value="#{bundle.CreateCfgDiagnosticoLabel_unidadEdadFinal}" for="unidadEdadFinal" />
+                        <p:inputText id="unidadEdadFinal" value="#{cfgDiagnosticoController.selected.unidadEdadFinal}" title="#{bundle.CreateCfgDiagnosticoTitle_unidadEdadFinal}" />
+                        <p:outputLabel value="#{bundle.CreateCfgDiagnosticoLabel_atencionObligatoria}" for="atencionObligatoria" />
+                        <p:selectBooleanCheckbox id="atencionObligatoria" value="#{cfgDiagnosticoController.selected.atencionObligatoria}" />
+                        <p:outputLabel value="#{bundle.CreateCfgDiagnosticoLabel_vigilanciaEpidemiologica}" for="vigilanciaEpidemiologica" />
+                        <p:selectBooleanCheckbox id="vigilanciaEpidemiologica" value="#{cfgDiagnosticoController.selected.vigilanciaEpidemiologica}" />
+                        <p:outputLabel value="#{bundle.CreateCfgDiagnosticoLabel_cent}" for="cent" />
+                        <p:selectBooleanCheckbox id="cent" value="#{cfgDiagnosticoController.selected.cent}" />
+                        <p:outputLabel value="#{bundle.CreateCfgDiagnosticoLabel_patCron}" for="patCron" />
+                        <p:selectBooleanCheckbox id="patCron" value="#{cfgDiagnosticoController.selected.patCron}" />
+                        <p:outputLabel value="#{bundle.CreateCfgDiagnosticoLabel_disMental}" for="disMental" />
+                        <p:selectBooleanCheckbox id="disMental" value="#{cfgDiagnosticoController.selected.disMental}" />
+                        <p:outputLabel value="#{bundle.CreateCfgDiagnosticoLabel_disSensorial}" for="disSensorial" />
+                        <p:selectBooleanCheckbox id="disSensorial" value="#{cfgDiagnosticoController.selected.disSensorial}" />
+                        <p:outputLabel value="#{bundle.CreateCfgDiagnosticoLabel_disMotriz}" for="disMotriz" />
+                        <p:selectBooleanCheckbox id="disMotriz" value="#{cfgDiagnosticoController.selected.disMotriz}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cfgDiagnosticoController.create}" value="#{bundle.Save}" update="display,:CfgDiagnosticoListForm:datalist,:growl" oncomplete="handleSubmit(args,'CfgDiagnosticoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CfgDiagnosticoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

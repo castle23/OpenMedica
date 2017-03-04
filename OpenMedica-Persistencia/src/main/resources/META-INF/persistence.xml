@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="coderappcoPU" transaction-type="JTA">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <jta-data-source>jdbc/coderappco</jta-data-source>
+    <class>com.coderappco.openmedica.persistencia.CfgSede</class>
+    <class>com.coderappco.openmedica.persistencia.CfgCentroCosto</class>
+    <class>com.coderappco.openmedica.persistencia.CfgClasificaciones</class>
+    <class>com.coderappco.openmedica.persistencia.CfgConfiguraciones</class>
+    <class>com.coderappco.openmedica.persistencia.CfgConsultorios</class>
+    <class>com.coderappco.openmedica.persistencia.CfgCopiasSeguridad</class>
+    <class>com.coderappco.openmedica.persistencia.CfgCorreo</class>
+    <class>com.coderappco.openmedica.persistencia.CfgCups</class>
+    <class>com.coderappco.openmedica.persistencia.CfgDiagnostico</class>
+    <class>com.coderappco.openmedica.persistencia.CfgDiasNoLaborales</class>
+    <class>com.coderappco.openmedica.persistencia.CfgEmpresa</class>
+    <class>com.coderappco.openmedica.persistencia.CfgEvento</class>
+    <class>com.coderappco.openmedica.persistencia.CfgHorario</class>
+    <class>com.coderappco.openmedica.persistencia.CfgImagenes</class>
+    <class>com.coderappco.openmedica.persistencia.CfgInsumo</class>
+    <class>com.coderappco.openmedica.persistencia.CfgItemsHorario</class>
+    <class>com.coderappco.openmedica.persistencia.CfgMaestrosClasificaciones</class>
+    <class>com.coderappco.openmedica.persistencia.CfgMaestrosTxtPredefinidos</class>
+    <class>com.coderappco.openmedica.persistencia.CfgMedicamento</class>
+    <class>com.coderappco.openmedica.persistencia.CfgOpcionesMenu</class>
+    <class>com.coderappco.openmedica.persistencia.CfgPacientes</class>
+    <class>com.coderappco.openmedica.persistencia.CfgPerfilesUsuario</class>
+    <class>com.coderappco.openmedica.persistencia.CfgPropositoConsulta</class>
+    <class>com.coderappco.openmedica.persistencia.CfgTxtPredefinidos</class>
+    <class>com.coderappco.openmedica.persistencia.CfgUnidad</class>
+    <class>com.coderappco.openmedica.persistencia.CfgUnidadFuncional</class>
+    <class>com.coderappco.openmedica.persistencia.CfgUsuarios</class>
+    <class>com.coderappco.openmedica.persistencia.CitAutorizaciones</class>
+    <class>com.coderappco.openmedica.persistencia.CitAutorizacionesServicios</class>
+    <class>com.coderappco.openmedica.persistencia.CitCitas</class>
+    <class>com.coderappco.openmedica.persistencia.CitPaqDetalle</class>
+    <class>com.coderappco.openmedica.persistencia.CitPaqMaestro</class>
+    <class>com.coderappco.openmedica.persistencia.CitTurnos</class>
+    <class>com.coderappco.openmedica.persistencia.FacAdministradora</class>
+    <class>com.coderappco.openmedica.persistencia.FacCaja</class>
+    <class>com.coderappco.openmedica.persistencia.FacConsecutivo</class>
+    <class>com.coderappco.openmedica.persistencia.FacConsumoInsumo</class>
+    <class>com.coderappco.openmedica.persistencia.FacConsumoMedicamento</class>
+    <class>com.coderappco.openmedica.persistencia.FacConsumoPaquete</class>
+    <class>com.coderappco.openmedica.persistencia.FacConsumoServicio</class>
+    <class>com.coderappco.openmedica.persistencia.FacContrato</class>
+    <class>com.coderappco.openmedica.persistencia.FacFacturaAdmi</class>
+    <class>com.coderappco.openmedica.persistencia.FacFacturaInsumo</class>
+    <class>com.coderappco.openmedica.persistencia.FacFacturaMedicamento</class>
+    <class>com.coderappco.openmedica.persistencia.FacFacturaPaciente</class>
+    <class>com.coderappco.openmedica.persistencia.FacFacturaPaquete</class>
+    <class>com.coderappco.openmedica.persistencia.FacFacturaServicio</class>
+    <class>com.coderappco.openmedica.persistencia.FacImpuestos</class>
+    <class>com.coderappco.openmedica.persistencia.FacManualTarifario</class>
+    <class>com.coderappco.openmedica.persistencia.FacManualTarifarioInsumo</class>
+    <class>com.coderappco.openmedica.persistencia.FacManualTarifarioMedicamento</class>
+    <class>com.coderappco.openmedica.persistencia.FacManualTarifarioPaquete</class>
+    <class>com.coderappco.openmedica.persistencia.FacManualTarifarioServicio</class>
+    <class>com.coderappco.openmedica.persistencia.FacMovimientoCaja</class>
+    <class>com.coderappco.openmedica.persistencia.FacPaquete</class>
+    <class>com.coderappco.openmedica.persistencia.FacPaqueteInsumo</class>
+    <class>com.coderappco.openmedica.persistencia.FacPaqueteMedicamento</class>
+    <class>com.coderappco.openmedica.persistencia.FacPaqueteServicio</class>
+    <class>com.coderappco.openmedica.persistencia.FacPeriodo</class>
+    <class>com.coderappco.openmedica.persistencia.FacPrograma</class>
+    <class>com.coderappco.openmedica.persistencia.FacServicio</class>
+    <class>com.coderappco.openmedica.persistencia.FacUnidadValor</class>
+    <class>com.coderappco.openmedica.persistencia.HcCamposReg</class>
+    <class>com.coderappco.openmedica.persistencia.HcDetalle</class>
+    <class>com.coderappco.openmedica.persistencia.HcItems</class>
+    <class>com.coderappco.openmedica.persistencia.HcRegistro</class>
+    <class>com.coderappco.openmedica.persistencia.HcTipoReg</class>
+    <class>com.coderappco.openmedica.persistencia.OdoConvenccion</class>
+    <class>com.coderappco.openmedica.persistencia.OdoDiente</class>
+    <class>com.coderappco.openmedica.persistencia.OdoDienteOdontograma</class>
+    <class>com.coderappco.openmedica.persistencia.OdoImagenOdontograma</class>
+    <class>com.coderappco.openmedica.persistencia.OdoOdontograma</class>
+    <class>com.coderappco.openmedica.persistencia.OdoRegistro</class>
+    <class>com.coderappco.openmedica.persistencia.OdoRegistroDetalle</class>
+    <class>com.coderappco.openmedica.persistencia.OdoSuperficieDental</class>
+    <class>com.coderappco.openmedica.persistencia.OdoTipoDiente</class>
+    <class>com.coderappco.openmedica.persistencia.RipsAc</class>
+    <class>com.coderappco.openmedica.persistencia.RipsAf</class>
+    <class>com.coderappco.openmedica.persistencia.RipsAlmacenados</class>
+    <class>com.coderappco.openmedica.persistencia.RipsAp</class>
+    <class>com.coderappco.openmedica.persistencia.RipsAt</class>
+    <class>com.coderappco.openmedica.persistencia.RipsCt</class>
+    <class>com.coderappco.openmedica.persistencia.RipsUs</class>
+    <class>com.coderappco.openmedica.persistencia.XlabEstudio</class>
+    <class>com.coderappco.openmedica.persistencia.XlabOrden</class>
+    <class>com.coderappco.openmedica.persistencia.XlabOrdenEstudioPruebaResultados</class>
+    <class>com.coderappco.openmedica.persistencia.XlabOrdenEstudiosPruebas</class>
+    <class>com.coderappco.openmedica.persistencia.XlabPrueba</class>
+    <class>com.coderappco.openmedica.persistencia.XlabPruebaReferencia</class>
+    <class>com.coderappco.openmedica.persistencia.XlabTipoTecnica</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <validation-mode>NONE</validation-mode>
+    <properties>
+      <property name="eclipselink.cache.shared.default" value="false"/>
+      <property name="eclipselink.logging.logger" value="JavaLogger"/>
+      <property name="eclipselink.logging.level" value="FINE"/>
+      <property name="eclipselink.logging.level.sql" value="FINE"/>
+      <property name="eclipselink.logging.session" value="true"/>
+      <property name="eclipselink.weaving" value="false"/>
+      <property name="eclipselink.logging.parameters" value="true"/>
+    </properties>
+  </persistence-unit>
+</persistence>

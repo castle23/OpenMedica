@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CfgUsuariosCreateDlg" widgetVar="CfgUsuariosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCfgUsuariosTitle}">
+            <h:form id="CfgUsuariosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cfgUsuariosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_idUsuario}" for="idUsuario" />
+                        <p:inputText id="idUsuario" value="#{cfgUsuariosController.selected.idUsuario}" title="#{bundle.CreateCfgUsuariosTitle_idUsuario}" required="true" requiredMessage="#{bundle.CreateCfgUsuariosRequiredMessage_idUsuario}"/>
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_identificacion}" for="identificacion" />
+                        <p:inputText id="identificacion" value="#{cfgUsuariosController.selected.identificacion}" title="#{bundle.CreateCfgUsuariosTitle_identificacion}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_clave}" for="clave" />
+                        <p:inputText id="clave" value="#{cfgUsuariosController.selected.clave}" title="#{bundle.CreateCfgUsuariosTitle_clave}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_loginUsuario}" for="loginUsuario" />
+                        <p:inputText id="loginUsuario" value="#{cfgUsuariosController.selected.loginUsuario}" title="#{bundle.CreateCfgUsuariosTitle_loginUsuario}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_estadoCuenta}" for="estadoCuenta" />
+                        <p:selectBooleanCheckbox id="estadoCuenta" value="#{cfgUsuariosController.selected.estadoCuenta}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_observacion}" for="observacion" />
+                        <p:inputText id="observacion" value="#{cfgUsuariosController.selected.observacion}" title="#{bundle.CreateCfgUsuariosTitle_observacion}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_primerNombre}" for="primerNombre" />
+                        <p:inputText id="primerNombre" value="#{cfgUsuariosController.selected.primerNombre}" title="#{bundle.CreateCfgUsuariosTitle_primerNombre}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_segundoNombre}" for="segundoNombre" />
+                        <p:inputText id="segundoNombre" value="#{cfgUsuariosController.selected.segundoNombre}" title="#{bundle.CreateCfgUsuariosTitle_segundoNombre}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_primerApellido}" for="primerApellido" />
+                        <p:inputText id="primerApellido" value="#{cfgUsuariosController.selected.primerApellido}" title="#{bundle.CreateCfgUsuariosTitle_primerApellido}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_segundoApellido}" for="segundoApellido" />
+                        <p:inputText id="segundoApellido" value="#{cfgUsuariosController.selected.segundoApellido}" title="#{bundle.CreateCfgUsuariosTitle_segundoApellido}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{cfgUsuariosController.selected.direccion}" title="#{bundle.CreateCfgUsuariosTitle_direccion}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_telefonoResidencia}" for="telefonoResidencia" />
+                        <p:inputText id="telefonoResidencia" value="#{cfgUsuariosController.selected.telefonoResidencia}" title="#{bundle.CreateCfgUsuariosTitle_telefonoResidencia}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_telefonoOficina}" for="telefonoOficina" />
+                        <p:inputText id="telefonoOficina" value="#{cfgUsuariosController.selected.telefonoOficina}" title="#{bundle.CreateCfgUsuariosTitle_telefonoOficina}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_celular}" for="celular" />
+                        <p:inputText id="celular" value="#{cfgUsuariosController.selected.celular}" title="#{bundle.CreateCfgUsuariosTitle_celular}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{cfgUsuariosController.selected.email}" title="#{bundle.CreateCfgUsuariosTitle_email}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_cargoActual}" for="cargoActual" />
+                        <p:inputText id="cargoActual" value="#{cfgUsuariosController.selected.cargoActual}" title="#{bundle.CreateCfgUsuariosTitle_cargoActual}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_registroProfesional}" for="registroProfesional" />
+                        <p:inputText id="registroProfesional" value="#{cfgUsuariosController.selected.registroProfesional}" title="#{bundle.CreateCfgUsuariosTitle_registroProfesional}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_unidadFuncional}" for="unidadFuncional" />
+                        <p:inputText id="unidadFuncional" value="#{cfgUsuariosController.selected.unidadFuncional}" title="#{bundle.CreateCfgUsuariosTitle_unidadFuncional}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_porcentajeHonorario}" for="porcentajeHonorario" />
+                        <p:inputText id="porcentajeHonorario" value="#{cfgUsuariosController.selected.porcentajeHonorario}" title="#{bundle.CreateCfgUsuariosTitle_porcentajeHonorario}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_fechaCreacion}" for="fechaCreacion" />
+                        <p:calendar id="fechaCreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{cfgUsuariosController.selected.fechaCreacion}" title="#{bundle.EditCfgUsuariosTitle_fechaCreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_visible}" for="visible" />
+                        <p:selectBooleanCheckbox id="visible" value="#{cfgUsuariosController.selected.visible}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_mostrarEnHistorias}" for="mostrarEnHistorias" />
+                        <p:selectBooleanCheckbox id="mostrarEnHistorias" value="#{cfgUsuariosController.selected.mostrarEnHistorias}" />
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_especialidad}" for="especialidad" />
+                        <p:selectOneMenu id="especialidad" value="#{cfgUsuariosController.selected.especialidad}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="especialidadItem"
+                                           itemValue="#{especialidadItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_genero}" for="genero" />
+                        <p:selectOneMenu id="genero" value="#{cfgUsuariosController.selected.genero}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="generoItem"
+                                           itemValue="#{generoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_personalAtiende}" for="personalAtiende" />
+                        <p:selectOneMenu id="personalAtiende" value="#{cfgUsuariosController.selected.personalAtiende}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="personalAtiendeItem"
+                                           itemValue="#{personalAtiendeItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_tipoUsuario}" for="tipoUsuario" />
+                        <p:selectOneMenu id="tipoUsuario" value="#{cfgUsuariosController.selected.tipoUsuario}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="tipoUsuarioItem"
+                                           itemValue="#{tipoUsuarioItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_departamento}" for="departamento" />
+                        <p:selectOneMenu id="departamento" value="#{cfgUsuariosController.selected.departamento}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="departamentoItem"
+                                           itemValue="#{departamentoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_municipio}" for="municipio" />
+                        <p:selectOneMenu id="municipio" value="#{cfgUsuariosController.selected.municipio}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="municipioItem"
+                                           itemValue="#{municipioItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_tipoIdentificacion}" for="tipoIdentificacion" />
+                        <p:selectOneMenu id="tipoIdentificacion" value="#{cfgUsuariosController.selected.tipoIdentificacion}" >
+                            <f:selectItems value="#{cfgClasificacionesController.itemsAvailableSelectOne}"
+                                           var="tipoIdentificacionItem"
+                                           itemValue="#{tipoIdentificacionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_firma}" for="firma" />
+                        <p:selectOneMenu id="firma" value="#{cfgUsuariosController.selected.firma}" >
+                            <f:selectItems value="#{cfgImagenesController.itemsAvailableSelectOne}"
+                                           var="firmaItem"
+                                           itemValue="#{firmaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_foto}" for="foto" />
+                        <p:selectOneMenu id="foto" value="#{cfgUsuariosController.selected.foto}" >
+                            <f:selectItems value="#{cfgImagenesController.itemsAvailableSelectOne}"
+                                           var="fotoItem"
+                                           itemValue="#{fotoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCfgUsuariosLabel_idPerfil}" for="idPerfil" />
+                        <p:selectOneMenu id="idPerfil" value="#{cfgUsuariosController.selected.idPerfil}" required="true" requiredMessage="#{bundle.EditCfgUsuariosRequiredMessage_idPerfil}">
+                            <f:selectItems value="#{cfgPerfilesUsuarioController.itemsAvailableSelectOne}"
+                                           var="idPerfilItem"
+                                           itemValue="#{idPerfilItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cfgUsuariosController.create}" value="#{bundle.Save}" update="display,:CfgUsuariosListForm:datalist,:growl" oncomplete="handleSubmit(args,'CfgUsuariosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CfgUsuariosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

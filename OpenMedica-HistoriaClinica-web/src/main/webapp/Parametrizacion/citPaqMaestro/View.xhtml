@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CitPaqMaestroViewDlg" widgetVar="CitPaqMaestroViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCitPaqMaestroTitle}">
+            <h:form id="CitPaqMaestroViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{citPaqMaestroController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCitPaqMaestroLabel_idPaqMaestro}"/>
+                        <h:outputText value="#{citPaqMaestroController.selected.idPaqMaestro}" title="#{bundle.ViewCitPaqMaestroTitle_idPaqMaestro}"/>
+                        <h:outputText value="#{bundle.ViewCitPaqMaestroLabel_codPaquete}"/>
+                        <h:outputText value="#{citPaqMaestroController.selected.codPaquete}" title="#{bundle.ViewCitPaqMaestroTitle_codPaquete}"/>
+                        <h:outputText value="#{bundle.ViewCitPaqMaestroLabel_nomPaquete}"/>
+                        <h:outputText value="#{citPaqMaestroController.selected.nomPaquete}" title="#{bundle.ViewCitPaqMaestroTitle_nomPaquete}"/>
+                        <h:outputText value="#{bundle.ViewCitPaqMaestroLabel_dias}"/>
+                        <h:outputText value="#{citPaqMaestroController.selected.dias}" title="#{bundle.ViewCitPaqMaestroTitle_dias}"/>
+                        <h:outputText value="#{bundle.ViewCitPaqMaestroLabel_noPaqAplicado}"/>
+                        <h:outputText value="#{citPaqMaestroController.selected.noPaqAplicado}" title="#{bundle.ViewCitPaqMaestroTitle_noPaqAplicado}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CitPaqMaestroViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

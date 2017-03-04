@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CfgHorarioEditDlg" widgetVar="CfgHorarioEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCfgHorarioTitle}">
+            <h:form id="CfgHorarioEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cfgHorarioController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCfgHorarioLabel_idHorario}" for="idHorario" />
+                        <p:inputText id="idHorario" value="#{cfgHorarioController.selected.idHorario}" title="#{bundle.EditCfgHorarioTitle_idHorario}" required="true" requiredMessage="#{bundle.EditCfgHorarioRequiredMessage_idHorario}"/>
+                        <p:outputLabel value="#{bundle.EditCfgHorarioLabel_codigo}" for="codigo" />
+                        <p:inputText id="codigo" value="#{cfgHorarioController.selected.codigo}" title="#{bundle.EditCfgHorarioTitle_codigo}" />
+                        <p:outputLabel value="#{bundle.EditCfgHorarioLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{cfgHorarioController.selected.descripcion}" title="#{bundle.EditCfgHorarioTitle_descripcion}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cfgHorarioController.update}" value="#{bundle.Save}" update="display,:CfgHorarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CfgHorarioEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CfgHorarioEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

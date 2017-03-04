@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CfgCentroCostoViewDlg" widgetVar="CfgCentroCostoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCfgCentroCostoTitle}">
+            <h:form id="CfgCentroCostoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cfgCentroCostoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCfgCentroCostoLabel_idCentroCosto}"/>
+                        <h:outputText value="#{cfgCentroCostoController.selected.idCentroCosto}" title="#{bundle.ViewCfgCentroCostoTitle_idCentroCosto}"/>
+                        <h:outputText value="#{bundle.ViewCfgCentroCostoLabel_codCentroCosto}"/>
+                        <h:outputText value="#{cfgCentroCostoController.selected.codCentroCosto}" title="#{bundle.ViewCfgCentroCostoTitle_codCentroCosto}"/>
+                        <h:outputText value="#{bundle.ViewCfgCentroCostoLabel_nomCentroCosto}"/>
+                        <h:outputText value="#{cfgCentroCostoController.selected.nomCentroCosto}" title="#{bundle.ViewCfgCentroCostoTitle_nomCentroCosto}"/>
+                        <h:outputText value="#{bundle.ViewCfgCentroCostoLabel_ctaContableIng}"/>
+                        <h:outputText value="#{cfgCentroCostoController.selected.ctaContableIng}" title="#{bundle.ViewCfgCentroCostoTitle_ctaContableIng}"/>
+                        <h:outputText value="#{bundle.ViewCfgCentroCostoLabel_ctaContableIngPs}"/>
+                        <h:outputText value="#{cfgCentroCostoController.selected.ctaContableIngPs}" title="#{bundle.ViewCfgCentroCostoTitle_ctaContableIngPs}"/>
+                        <h:outputText value="#{bundle.ViewCfgCentroCostoLabel_ctaDevolucion}"/>
+                        <h:outputText value="#{cfgCentroCostoController.selected.ctaDevolucion}" title="#{bundle.ViewCfgCentroCostoTitle_ctaDevolucion}"/>
+                        <h:outputText value="#{bundle.ViewCfgCentroCostoLabel_concCartera}"/>
+                        <h:outputText value="#{cfgCentroCostoController.selected.concCartera}" title="#{bundle.ViewCfgCentroCostoTitle_concCartera}"/>
+                        <h:outputText value="#{bundle.ViewCfgCentroCostoLabel_concDevolucion}"/>
+                        <h:outputText value="#{cfgCentroCostoController.selected.concDevolucion}" title="#{bundle.ViewCfgCentroCostoTitle_concDevolucion}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CfgCentroCostoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CitCitasViewDlg" widgetVar="CitCitasViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCitCitasTitle}">
+            <h:form id="CitCitasViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{citCitasController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_idCita}"/>
+                        <h:outputText value="#{citCitasController.selected.idCita}" title="#{bundle.ViewCitCitasTitle_idCita}"/>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_atendida}"/>
+                        <p:selectBooleanCheckbox value="#{citCitasController.selected.atendida}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_cancelada}"/>
+                        <p:selectBooleanCheckbox value="#{citCitasController.selected.cancelada}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_multado}"/>
+                        <p:selectBooleanCheckbox value="#{citCitasController.selected.multado}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_descCancelacion}"/>
+                        <h:outputText value="#{citCitasController.selected.descCancelacion}" title="#{bundle.ViewCitCitasTitle_descCancelacion}"/>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_fechaRegistro}"/>
+                        <h:outputText value="#{citCitasController.selected.fechaRegistro}" title="#{bundle.ViewCitCitasTitle_fechaRegistro}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_fechaCancelacion}"/>
+                        <h:outputText value="#{citCitasController.selected.fechaCancelacion}" title="#{bundle.ViewCitCitasTitle_fechaCancelacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_facturada}"/>
+                        <p:selectBooleanCheckbox value="#{citCitasController.selected.facturada}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_noPaqAplicado}"/>
+                        <h:outputText value="#{citCitasController.selected.noPaqAplicado}" title="#{bundle.ViewCitCitasTitle_noPaqAplicado}"/>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_tieneRegAsociado}"/>
+                        <p:selectBooleanCheckbox value="#{citCitasController.selected.tieneRegAsociado}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_numAutorizacion}"/>
+                        <h:outputText value="#{citCitasController.selected.numAutorizacion}" title="#{bundle.ViewCitCitasTitle_numAutorizacion}"/>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_motivoCancelacion}"/>
+                        <h:outputText value="#{citCitasController.selected.motivoCancelacion}" title="#{bundle.ViewCitCitasTitle_motivoCancelacion}"/>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_tipoCita}"/>
+                        <h:outputText value="#{citCitasController.selected.tipoCita}" title="#{bundle.ViewCitCitasTitle_tipoCita}"/>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_idPaciente}"/>
+                        <h:outputText value="#{citCitasController.selected.idPaciente}" title="#{bundle.ViewCitCitasTitle_idPaciente}"/>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_idPrestador}"/>
+                        <h:outputText value="#{citCitasController.selected.idPrestador}" title="#{bundle.ViewCitCitasTitle_idPrestador}"/>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_idAutorizacion}"/>
+                        <h:outputText value="#{citCitasController.selected.idAutorizacion}" title="#{bundle.ViewCitCitasTitle_idAutorizacion}"/>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_idPaquete}"/>
+                        <h:outputText value="#{citCitasController.selected.idPaquete}" title="#{bundle.ViewCitCitasTitle_idPaquete}"/>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_idTurno}"/>
+                        <h:outputText value="#{citCitasController.selected.idTurno}" title="#{bundle.ViewCitCitasTitle_idTurno}"/>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_idAdministradora}"/>
+                        <h:outputText value="#{citCitasController.selected.idAdministradora}" title="#{bundle.ViewCitCitasTitle_idAdministradora}"/>
+                        <h:outputText value="#{bundle.ViewCitCitasLabel_idServicio}"/>
+                        <h:outputText value="#{citCitasController.selected.idServicio}" title="#{bundle.ViewCitCitasTitle_idServicio}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CitCitasViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
